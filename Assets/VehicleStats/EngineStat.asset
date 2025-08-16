@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccf1ec53fa74c546a909230a3ababc0, type: 3}
+  m_Name: EngineStat
+  m_EditorClassIdentifier: 
+  id: 0
+  icon: {fileID: -875229853, guid: a5129965d9f7c604cb1842f6662f7e07, type: 3}
+  upgradeName: Engine
+  currentLevelIndex: 2
+  upgrades:
+  - upgradeCost: 0
+    upgradeModifier: 0
+  - upgradeCost: 5
+    upgradeModifier: 1
+  - upgradeCost: 12
+    upgradeModifier: 2
+  - upgradeCost: 24
+    upgradeModifier: 2.5
+  - upgradeCost: 48
+    upgradeModifier: 3
+  - upgradeCost: 60
+    upgradeModifier: 4
+  - upgradeCost: 80
+    upgradeModifier: 5
+  canUpgrade: 1

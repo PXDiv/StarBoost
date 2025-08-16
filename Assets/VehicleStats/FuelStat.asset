@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bccf1ec53fa74c546a909230a3ababc0, type: 3}
+  m_Name: FuelStat
+  m_EditorClassIdentifier: 
+  id: 0
+  icon: {fileID: -5924929112132746487, guid: 9971cffcc45f2a24e8cc3b01ac839675, type: 3}
+  upgradeName: Fuel Capacity
+  currentLevelIndex: 1
+  upgrades:
+  - upgradeCost: 0
+    upgradeModifier: 0
+  - upgradeCost: 1
+    upgradeModifier: 4
+  - upgradeCost: 4
+    upgradeModifier: 8
+  - upgradeCost: 8
+    upgradeModifier: 12
+  - upgradeCost: 16
+    upgradeModifier: 15
+  - upgradeCost: 24
+    upgradeModifier: 17
+  - upgradeCost: 30
+    upgradeModifier: 19
+  - upgradeCost: 0
+    upgradeModifier: 22
+  - upgradeCost: 0
+    upgradeModifier: 25
+  - upgradeCost: 0
+    upgradeModifier: 27
+  - upgradeCost: 0
+    upgradeModifier: 30
+  canUpgrade: 1
