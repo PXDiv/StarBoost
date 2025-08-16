@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Arbam.sln"
+    "dotnet.defaultSolution": "StarBoost.sln"
 }

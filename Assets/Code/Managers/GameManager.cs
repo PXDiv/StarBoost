@@ -4,7 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public void StartSession()
     {
-        LevelLoader.LoadLevel("Game");
+        LevelLoader.LoadLevel("Level1");
     }
 
     public void LoadSavedLevels()

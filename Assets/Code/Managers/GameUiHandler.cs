@@ -25,8 +25,8 @@ public class GameUiHandler : MonoBehaviour
 
     private void OnSessionOver(SessionEndData endData)
     {
-        sessionOverController.SetData(endData);
         sessionOverController.gameObject.SetActive(true);
+        sessionOverController.SetData(endData);
     }
 
 
