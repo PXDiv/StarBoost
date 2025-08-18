@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 294893ad2362b2740be4185f781a22e9
+guid: cf1058e703b460e469c9360fe1038d2c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -90402035615057957
-    second: photo-1637325258040-d2f09636ecf6_0
+      213: -2277315553794282849
+    second: fuelcans_0
+  - first:
+      213: 347537251823241940
+    second: fuelcans_1
+  - first:
+      213: 5039496701423529645
+    second: fuelcans_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,15 +46,15 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 200
@@ -113,23 +119,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: photo-1637325258040-d2f09636ecf6_0
+      name: fuelcans_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 10
         y: 0
-        width: 3000
-        height: 4000
+        width: 113
+        height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bd7313cd3d3debef0800000000000000
-      internalID: -90402035615057957
+      spriteID: f9aae9ec1995560e0800000000000000
+      internalID: -2277315553794282849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fuelcans_1
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 153
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dac3290a43b2d400800000000000000
+      internalID: 347537251823241940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fuelcans_2
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 0
+        width: 171
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dae2a1fac83efe540800000000000000
+      internalID: 5039496701423529645
       vertices: []
       indices: 
       edges: []
@@ -138,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 66b49665ed99bbf43a891fcf47b63579
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      photo-1637325258040-d2f09636ecf6_0: -90402035615057957
+      fuelcans_0: -2277315553794282849
+      fuelcans_1: 347537251823241940
+      fuelcans_2: 5039496701423529645
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

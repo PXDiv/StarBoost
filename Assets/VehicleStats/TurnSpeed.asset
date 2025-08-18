@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: TurnSpeed
   m_EditorClassIdentifier: 
   id: 0
-  icon: {fileID: 21300000, guid: f549b0822f25fa449acd8ad386a6a3e6, type: 3}
+  icon: {fileID: 21300000, guid: 61ffb6bca1807a443978cd11d7f07f74, type: 3}
   upgradeName: Turn Speed
   currentLevelIndex: 0
   upgrades:
   - upgradeCost: 0
     upgradeModifier: 0
-  - upgradeCost: 0
+  - upgradeCost: 30
     upgradeModifier: 0.1
-  - upgradeCost: 0
+  - upgradeCost: 70
     upgradeModifier: 0.2
   canUpgrade: 1

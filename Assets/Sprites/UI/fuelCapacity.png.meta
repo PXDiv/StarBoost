@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 294893ad2362b2740be4185f781a22e9
+guid: 465d2569711543e41b0bac5b603ade3f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -90402035615057957
-    second: photo-1637325258040-d2f09636ecf6_0
+      213: -3947365688401751181
+    second: fuelCapacity_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,18 +40,18 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: photo-1637325258040-d2f09636ecf6_0
+      name: fuelCapacity_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 14
         y: 0
-        width: 3000
-        height: 4000
+        width: 172
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bd7313cd3d3debef0800000000000000
-      internalID: -90402035615057957
+      spriteID: 3739f3802d32839c0800000000000000
+      internalID: -3947365688401751181
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      photo-1637325258040-d2f09636ecf6_0: -90402035615057957
+      fuelCapacity_0: -3947365688401751181
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: EngineStat
   m_EditorClassIdentifier: 
   id: 0
-  icon: {fileID: -875229853, guid: a5129965d9f7c604cb1842f6662f7e07, type: 3}
+  icon: {fileID: 3528154439952004137, guid: 61ca208fb4775a241be5ba2be32d2407, type: 3}
   upgradeName: Engine
-  currentLevelIndex: 2
+  currentLevelIndex: 3
   upgrades:
   - upgradeCost: 0
     upgradeModifier: 0

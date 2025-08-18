@@ -17,10 +17,17 @@ public class GameUiHandler : MonoBehaviour
         playerSpaceship = FindFirstObjectByType<PlayerSpaceship>();
         sessionManager.SessionOver += OnSessionOver;
     }
+
+    void Start()
+    {
+        var fuelSliderAnchorMax = fuelSlider.GetComponent<RectTransform>();
+        print(playerSpaceship.SessionMaxFuel);
+        fuelSliderAnchorMax.sizeDelta = new Vector2(playerSpaceship.SessionMaxFuel * 15f, fuelSliderAnchorMax.sizeDelta.y);
+    }
     void Update()
     {
         fuelSlider.value = Mathf.Lerp(fuelSlider.value, playerSpaceship.CurrentFuel, Time.deltaTime * 10f);
-        fuelSlider.maxValue = playerSpaceship.CurrentMaxFuel;
+        fuelSlider.maxValue = playerSpaceship.SessionMaxFuel;
     }
 
     private void OnSessionOver(SessionEndData endData)

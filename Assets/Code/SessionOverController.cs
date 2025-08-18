@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class SessionOverController : MonoBehaviour
 {
+    [SerializeField] RectTransform container;
     [SerializeField] float sliderAnimationDuration = 1f;
     [SerializeField] float animationInbetweenInterval = 0.2f;
     [SerializeField] Slider levelProgressSlider;
@@ -38,10 +39,12 @@ public class SessionOverController : MonoBehaviour
 
     public IEnumerator AnimateAndShowData()
     {
+
+        //Reset and set Values for animation
         dayText.text = $"Day {_endData.dayNumber} Over";
         distanceTravelledText.text = _endData.completedLevelLength.ToString("00.0") + "m";
 
-        Transform[] textFieldsTransform = { rewardDistanceText.transform, rewardDestructionText.transform, penalityDamageText.transform, totalRewardText.transform };
+        Transform[] textFieldsTransform = { distanceTravelledText.transform, rewardDistanceText.transform, rewardDestructionText.transform, penalityDamageText.transform, totalRewardText.transform };
         foreach (Transform transform in textFieldsTransform)
         {
             transform.localScale = Vector2.zero;
@@ -53,21 +56,31 @@ public class SessionOverController : MonoBehaviour
         totalRewardText.text = $": ${_endData.totalReward}";
 
         levelProgressSlider.maxValue = _endData.totalLevelLength;
+        levelProgressSlider.value = 0;
+        distanceTravelledText.transform.localScale = Vector2.zero;
+        //Animation Stuff from here
 
-        levelProgressSlider.DOValue(_endData.completedLevelLength, sliderAnimationDuration).SetEase(easeSlider);
+        //Container Animation
+        container.DOScale(Vector2.one, 0.5f).From(0).SetUpdate(true);
+        yield return new WaitForSecondsRealtime(0.5f);
 
-        yield return new WaitForSeconds(sliderAnimationDuration);
+        //Slider Animation
+
+        levelProgressSlider.DOValue(_endData.completedLevelLength, sliderAnimationDuration).SetEase(easeSlider).SetUpdate(true);
+
+        //Text Animations
+        yield return new WaitForSecondsRealtime(sliderAnimationDuration);
 
         foreach (Transform transform in textFieldsTransform)
         {
             DoAnimateTransform(transform);
-            yield return new WaitForSeconds(animationInbetweenInterval);
+            yield return new WaitForSecondsRealtime(animationInbetweenInterval);
         }
     }
 
     public void DoAnimateTransform(Transform transform)
     {
-        transform.DOScale(Vector2.one * 1, animationInbetweenInterval * 2).From(0f).SetEase(Ease.OutExpo);
+        transform.DOScale(Vector2.one * 1, animationInbetweenInterval * 2).From(0f).SetEase(Ease.OutExpo).SetUpdate(true);
     }
 }
 

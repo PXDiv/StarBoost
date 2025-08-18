@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,12 +9,15 @@ public class SessionManager : MonoBehaviour
     [SerializeField] PlayerSpaceship spaceship;
     public Action<SessionEndData> SessionOver;
     bool sessionOver;
+    bool isLevelFinished;
+    [SerializeField] SpriteRenderer flashFxSpriteRenderer;
 
     string sceneDaySaveKey;
 
     void Awake()
     {
-        spaceship.OnGameOver += () => Invoke("DoSessionOver", 2);
+        Resume();
+        spaceship.OnGameOver += DoSessionOver;
         sceneDaySaveKey = $"Level{SceneManager.GetActiveScene().buildIndex}Day";
     }
 
@@ -23,28 +28,40 @@ public class SessionManager : MonoBehaviour
 
     public void DoSessionOver()
     {
-        if (!sessionOver)
+        if (sessionOver)
+        { return; }
+
+        StartCoroutine(SessionOverCo(delay: 1));
+
+    }
+    private IEnumerator SessionOverCo(float delay)
+    {
+
+        float finishLineHeight = FindFirstObjectByType<FinishLine>().transform.position.y;
+        float maxHeightReached = isLevelFinished ? finishLineHeight : spaceship.MaxHeightReached;
+
+        int rewardGranted = CalculateReward(maxHeightReached);
+        MoneyMan.AddMoney(rewardGranted);
+
+        PlayerPrefs.SetInt(sceneDaySaveKey, PlayerPrefs.GetInt(sceneDaySaveKey, 0) + 1);
+
+        SessionEndData endData = new SessionEndData
         {
-            int rewardGranted = CalculateReward(spaceship.MaxHeightReached);
-            MoneyMan.AddMoney(rewardGranted);
+            dayNumber = PlayerPrefs.GetInt(sceneDaySaveKey),
+            rewardDistance = Convert.ToInt16(maxHeightReached) / 2,
+            rewardDestruction = 0,
+            noDamageReward = 0,
+            totalReward = rewardGranted,
 
-
-            PlayerPrefs.SetInt(sceneDaySaveKey, PlayerPrefs.GetInt(sceneDaySaveKey, 0) + 1);
-
-            SessionEndData endData = new SessionEndData
-            {
-                dayNumber = PlayerPrefs.GetInt(sceneDaySaveKey),
-                rewardDistance = Convert.ToInt16(spaceship.MaxHeightReached) / 2,
-                rewardDestruction = 0,
-                noDamageReward = 0,
-                totalReward = rewardGranted,
-
-                completedLevelLength = spaceship.MaxHeightReached,
-                totalLevelLength = FindFirstObjectByType<FinishLine>().transform.position.y,
-            };
-            sessionOver = true;
-            SessionOver?.Invoke(endData);
-        }
+            completedLevelLength = maxHeightReached,
+            totalLevelLength = finishLineHeight,
+        };
+        sessionOver = true;
+        flashFxSpriteRenderer.gameObject.SetActive(true);
+        flashFxSpriteRenderer.DOFade(0, 1f).From(1).SetUpdate(true);
+        Pause();
+        yield return new WaitForSecondsRealtime(delay);
+        SessionOver?.Invoke(endData);
     }
 
     public int CalculateReward(float heightReached, int itemValueDestroyed = 0, int damagePenality = 0)
@@ -66,28 +83,10 @@ public class SessionManager : MonoBehaviour
 
     public void LevelCleared(FinishLine finishLine)
     {
-        if (!sessionOver)
-        {
-            sessionOver = true;
-            int rewardGranted = CalculateReward(finishLine.transform.position.y);
-            MoneyMan.AddMoney(rewardGranted);
-
-            PlayerPrefs.SetInt(sceneDaySaveKey, PlayerPrefs.GetInt(sceneDaySaveKey, 0) + 1);
-
-            SessionEndData endData = new SessionEndData
-            {
-                dayNumber = PlayerPrefs.GetInt(sceneDaySaveKey),
-                rewardDistance = Convert.ToInt16(finishLine.transform.position.y) / 2,
-                rewardDestruction = 0,
-                noDamageReward = 0,
-                totalReward = rewardGranted,
-
-                totalLevelLength = finishLine.transform.position.y,
-                completedLevelLength = finishLine.transform.position.y,
-            };
-            SessionOver?.Invoke(endData);
-        }
+        isLevelFinished = true;
+        DoSessionOver();
     }
+
 
 }
 

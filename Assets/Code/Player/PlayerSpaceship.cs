@@ -27,9 +27,6 @@ public class PlayerSpaceship : MonoBehaviour
     [SerializeField] VariableJoystick joystick;
     //[SerializeField] VehicleUpgradeManager upgradeManager;
 
-
-    [Header("Debug")]
-    public bool gameOver = false;
     #endregion
 
     #region Events
@@ -40,12 +37,15 @@ public class PlayerSpaceship : MonoBehaviour
     #endregion
 
     #region Internal Fields
-    Vector2 sessionMaxVelocity; public Vector2 SessionMaxVelocity { get { return sessionMaxVelocity; } }
-    float sessionCurrentFuel; public float CurrentFuel { get { return sessionCurrentFuel; } }
-    float currentFuelReductionRate;
-    float sessionMaxFuel; public float CurrentMaxFuel { get { return sessionMaxFuel; } }
-    float vehicleMaxFuel; public float VehicleMaxFuel { get { return vehicleMaxFuel; } }
-    Vector2 vehicleMaxVelocity; public Vector2 VehicleMaxVelocity { get { return vehicleMaxVelocity; } }
+
+    [Header("Debug")]
+    public bool gameOver = false;
+    [SerializeField] Vector2 sessionMaxVelocity; public Vector2 SessionMaxVelocity { get { return sessionMaxVelocity; } }
+    [SerializeField] float sessionCurrentFuel; public float CurrentFuel { get { return sessionCurrentFuel; } }
+    [SerializeField] float currentFuelReductionRate;
+    [SerializeField] float sessionMaxFuel; public float SessionMaxFuel { get { return sessionMaxFuel; } }
+    [SerializeField] float vehicleMaxFuel; public float VehicleMaxFuel { get { return vehicleMaxFuel; } }
+    [SerializeField] Vector2 vehicleMaxVelocity; public Vector2 VehicleMaxVelocity { get { return vehicleMaxVelocity; } }
 
     float yInput, xInput;
     public float InputRecivedX { get { return xInput; } }
@@ -73,7 +73,7 @@ public class PlayerSpaceship : MonoBehaviour
     #region UpdateChanges
     void Update()
     {
-        yInput = Input.GetAxis("Vertical") + (Input.GetMouseButton(0) ? 1f : 0f);
+        yInput = Input.GetMouseButton(0) ? 1f : 0f;
         xInput = joystick.Horizontal;
     }
     void FixedUpdate()
@@ -129,22 +129,15 @@ public class PlayerSpaceship : MonoBehaviour
 
         // apply the lean
         visualSprite.transform.localEulerAngles = leanAngle;
-
-
     }
 
     #endregion
 
     #region FuelStuff
 
-    public void AddFuel(int amount)
+    public void RefillFuel(float amount)
     {
-        sessionCurrentFuel += amount;
-    }
-
-    public void RefillFuel()
-    {
-        sessionCurrentFuel = CurrentMaxFuel;
+        sessionCurrentFuel = Mathf.Min(sessionMaxFuel, sessionCurrentFuel + amount);
     }
 
     void ReduceFuel(float amount)
@@ -210,11 +203,14 @@ public class PlayerSpaceship : MonoBehaviour
     }
     #endregion
 
+    #region Other
     void SessionOver()
     {
+        rb.gravityScale = 0;
         Instantiate(paintSplashGameobj, transform.position, quaternion.identity);
         FindAnyObjectByType<ScorePositionsSaver>().RegisterLocation(transform.position);
         maxHeightReached = transform.position.y;
     }
+    #endregion
 
 }

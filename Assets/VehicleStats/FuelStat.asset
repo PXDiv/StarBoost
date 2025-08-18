@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: FuelStat
   m_EditorClassIdentifier: 
   id: 0
-  icon: {fileID: -5924929112132746487, guid: 9971cffcc45f2a24e8cc3b01ac839675, type: 3}
+  icon: {fileID: -3947365688401751181, guid: 465d2569711543e41b0bac5b603ade3f, type: 3}
   upgradeName: Fuel Capacity
-  currentLevelIndex: 1
+  currentLevelIndex: 0
   upgrades:
   - upgradeCost: 0
     upgradeModifier: 0
