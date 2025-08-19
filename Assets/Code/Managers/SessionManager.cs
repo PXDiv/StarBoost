@@ -40,7 +40,7 @@ public class SessionManager : MonoBehaviour
         float finishLineHeight = FindFirstObjectByType<FinishLine>().transform.position.y;
         float maxHeightReached = isLevelFinished ? finishLineHeight : spaceship.MaxHeightReached;
 
-        int rewardGranted = CalculateReward(maxHeightReached);
+        int rewardGranted = CalculateReward(maxHeightReached, collectedCoinValue);
         MoneyMan.AddMoney(rewardGranted);
 
         PlayerPrefs.SetInt(sceneDaySaveKey, PlayerPrefs.GetInt(sceneDaySaveKey, 0) + 1);
@@ -50,7 +50,7 @@ public class SessionManager : MonoBehaviour
             dayNumber = PlayerPrefs.GetInt(sceneDaySaveKey),
             rewardDistance = Convert.ToInt16(maxHeightReached) / 2,
             rewardDestruction = 0,
-            noDamageReward = 0,
+            coinCollectedReward = collectedCoinValue,
             totalReward = rewardGranted,
 
             completedLevelLength = maxHeightReached,
@@ -64,11 +64,17 @@ public class SessionManager : MonoBehaviour
         SessionOver?.Invoke(endData);
     }
 
-    public int CalculateReward(float heightReached, int itemValueDestroyed = 0, int damagePenality = 0)
+    public int CalculateReward(float heightReached, int itemValueDestroyed = 0, int coinsCollected = 0)
     {
-        float formula = heightReached / 2 + itemValueDestroyed - damagePenality;
+        float formula = (heightReached / 2) + itemValueDestroyed + coinsCollected;
         int reward = Convert.ToInt16(formula);
         return reward;
+    }
+
+    public int collectedCoinValue;
+    public void AddCollectCoinValue(int coinValue)
+    {
+        collectedCoinValue += coinValue;
     }
 
     public void Pause()

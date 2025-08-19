@@ -15,16 +15,16 @@ MonoBehaviour:
   id: 0
   icon: {fileID: 21300000, guid: 56fea6d35ed8c0b4990b88c4617d79a6, type: 3}
   upgradeName: Fuel Efficiency
-  currentLevelIndex: 0
+  currentLevelIndex: 2
   upgrades:
   - upgradeCost: 0
     upgradeModifier: 0
-  - upgradeCost: 16
-    upgradeModifier: 0.01
-  - upgradeCost: 32
-    upgradeModifier: 0.02
   - upgradeCost: 64
+    upgradeModifier: 0.01
+  - upgradeCost: 128
+    upgradeModifier: 0.02
+  - upgradeCost: 256
     upgradeModifier: 0.03
-  - upgradeCost: 12
+  - upgradeCost: 512
     upgradeModifier: 0.04
   canUpgrade: 1

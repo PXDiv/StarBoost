@@ -17,7 +17,7 @@ public class SessionOverController : MonoBehaviour
         dayText,
         rewardDistanceText,
         rewardDestructionText,
-        penalityDamageText,
+        coinsCollectedText,
         totalRewardText;
 
     [SerializeField] TMP_Text distanceTravelledText;
@@ -44,7 +44,7 @@ public class SessionOverController : MonoBehaviour
         dayText.text = $"Day {_endData.dayNumber} Over";
         distanceTravelledText.text = _endData.completedLevelLength.ToString("00.0") + "m";
 
-        Transform[] textFieldsTransform = { distanceTravelledText.transform, rewardDistanceText.transform, rewardDestructionText.transform, penalityDamageText.transform, totalRewardText.transform };
+        Transform[] textFieldsTransform = { distanceTravelledText.transform, rewardDistanceText.transform, rewardDestructionText.transform, coinsCollectedText.transform, totalRewardText.transform };
         foreach (Transform transform in textFieldsTransform)
         {
             transform.localScale = Vector2.zero;
@@ -52,7 +52,7 @@ public class SessionOverController : MonoBehaviour
 
         rewardDistanceText.text = $": ${_endData.rewardDistance}";
         rewardDestructionText.text = $": ${_endData.rewardDestruction}";
-        penalityDamageText.text = $": ${_endData.noDamageReward}";
+        coinsCollectedText.text = $": ${_endData.coinCollectedReward}";
         totalRewardText.text = $": ${_endData.totalReward}";
 
         levelProgressSlider.maxValue = _endData.totalLevelLength;
@@ -89,7 +89,7 @@ public struct SessionEndData
     public int dayNumber;
     public int rewardDistance;
     public int rewardDestruction;
-    public int noDamageReward;
+    public int coinCollectedReward;
     public int totalReward;
     public float totalLevelLength;
     public float completedLevelLength;

@@ -12,7 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/BootStraper.unity
     guid: 4fec8d95c56decc48afd88a4912586f8
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/Game.unity
+    guid: 65dfab5a15f3f744fbf58115848be3fd
+  - enabled: 0
+    path: Assets/Scenes/Level3.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
