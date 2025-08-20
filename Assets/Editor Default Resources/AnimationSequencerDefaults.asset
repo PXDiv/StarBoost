@@ -23,7 +23,7 @@ MonoBehaviour:
   autoKill: 1
   direction: 0
   ease:
-    ease: 7
+    ease: 18
     curve:
       serializedVersion: 2
       m_Curve:

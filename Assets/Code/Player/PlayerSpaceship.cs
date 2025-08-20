@@ -50,6 +50,16 @@ public class PlayerSpaceship : MonoBehaviour
     float yInput, xInput;
     public float InputRecivedX { get { return xInput; } }
     public float InputRecivedY { get { return yInput; } }
+    public bool isFuelLow
+    {
+        get
+        {
+            if (CurrentFuel / SessionMaxFuel < 0.2f)
+                return true;
+            else return false;
+        }
+
+    }
     Vector3 leanAngle;
     Vector2 currentVelocity; public Vector2 CurrentVelocity { get { return currentVelocity; } }
     float maxHeightReached = 0; public float MaxHeightReached { get { return maxHeightReached; } }

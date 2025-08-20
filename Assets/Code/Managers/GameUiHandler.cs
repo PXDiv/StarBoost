@@ -8,6 +8,7 @@ public class GameUiHandler : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] Slider fuelSlider;
     [SerializeField] SessionOverController sessionOverController;
+    [SerializeField] GameObject LowFuelWarningText;
     SessionManager sessionManager;
     PlayerSpaceship playerSpaceship;
 
@@ -23,6 +24,8 @@ public class GameUiHandler : MonoBehaviour
         var fuelSliderAnchorMax = fuelSlider.GetComponent<RectTransform>();
         print(playerSpaceship.SessionMaxFuel);
         fuelSliderAnchorMax.sizeDelta = new Vector2(playerSpaceship.SessionMaxFuel * 15f, fuelSliderAnchorMax.sizeDelta.y);
+
+        InvokeRepeating("RefreshLowFuelWarning", 0.1f, 0.5f);
     }
     void Update()
     {
@@ -36,7 +39,15 @@ public class GameUiHandler : MonoBehaviour
         sessionOverController.SetData(endData);
     }
 
+    void RefreshLowFuelWarning()
+    {
+        ShowLowFuelWarning(playerSpaceship.isFuelLow);
+    }
 
+    public void ShowLowFuelWarning(bool toShow)
+    {
+        LowFuelWarningText.SetActive(toShow);
+    }
     public void ShowPauseMenu(bool toShow)
     {
         pauseMenu.SetActive(toShow);
@@ -59,8 +70,8 @@ public class GameUiHandler : MonoBehaviour
         LevelLoader.RestartLevel();
     }
 
-    public void ExitToMainMenu()
+    public void ExitToGarage()
     {
-        LevelLoader.LoadMenu();
+        LevelLoader.LoadGarage();
     }
 }

@@ -18,9 +18,15 @@ public class UpgradeButton : MonoBehaviour
 
     public void UpgradeStat()
     {
-        attachedStat.TryUpgradeLevel();
+        bool didUpgrade = attachedStat.TryUpgradeLevel();
+        MenuUiHandler menuUiHandler = FindAnyObjectByType<MenuUiHandler>();
+
+        if (didUpgrade)
+        {
+            menuUiHandler.UpgradeAnimateGarageVehicle();
+        }
         RefreshButtonInfo();
-        FindAnyObjectByType<MenuUiHandler>().RefreshUI();
+        menuUiHandler.RefreshUI();
     }
 
     public void SetProperties(StatInfo statInfo)

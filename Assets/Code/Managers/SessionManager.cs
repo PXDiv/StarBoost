@@ -21,11 +21,6 @@ public class SessionManager : MonoBehaviour
         sceneDaySaveKey = $"Level{SceneManager.GetActiveScene().buildIndex}Day";
     }
 
-    void Start()
-    {
-        PlayerPrefs.GetInt(sceneDaySaveKey);
-    }
-
     public void DoSessionOver()
     {
         if (sessionOver)
@@ -36,9 +31,15 @@ public class SessionManager : MonoBehaviour
     }
     private IEnumerator SessionOverCo(float delay)
     {
+        float finishLineHeight = 0;
 
-        float finishLineHeight = FindFirstObjectByType<FinishLine>().transform.position.y;
+        if (FindFirstObjectByType<FinishLine>() != null)
+        { finishLineHeight = FindFirstObjectByType<FinishLine>().transform.position.y; }
+
         float maxHeightReached = isLevelFinished ? finishLineHeight : spaceship.MaxHeightReached;
+
+        // Sets the Current Unfinished Level to the next one
+        if (isLevelFinished) { PlayerPrefs.SetInt(LevelLoader.CurrentUnfinishedLevelKey, SceneManager.GetActiveScene().buildIndex + 1); }
 
         int rewardGranted = CalculateReward(maxHeightReached, collectedCoinValue);
         MoneyMan.AddMoney(rewardGranted);
@@ -48,7 +49,7 @@ public class SessionManager : MonoBehaviour
         SessionEndData endData = new SessionEndData
         {
             dayNumber = PlayerPrefs.GetInt(sceneDaySaveKey),
-            rewardDistance = Convert.ToInt16(maxHeightReached) / 2,
+            rewardDistance = Mathf.FloorToInt(maxHeightReached) / 2,
             rewardDestruction = 0,
             coinCollectedReward = collectedCoinValue,
             totalReward = rewardGranted,
@@ -67,7 +68,7 @@ public class SessionManager : MonoBehaviour
     public int CalculateReward(float heightReached, int itemValueDestroyed = 0, int coinsCollected = 0)
     {
         float formula = (heightReached / 2) + itemValueDestroyed + coinsCollected;
-        int reward = Convert.ToInt16(formula);
+        int reward = Mathf.FloorToInt(formula);
         return reward;
     }
 
@@ -126,6 +127,8 @@ public static class MoneyMan
 
 public static class LevelLoader
 {
+    public static readonly string CurrentUnfinishedLevelKey = "CurrentUnfinishedLevel";
+
     public static void LoadLevel(int levelIndex)
     {
         Time.timeScale = 1;
@@ -140,13 +143,35 @@ public static class LevelLoader
         SceneManager.LoadSceneAsync("BootStraper", LoadSceneMode.Additive);
     }
 
+    public static void LoadCurrentUnfinishedLevel()
+    {
+        int currentUnfinishedLevelIndex = PlayerPrefs.GetInt(CurrentUnfinishedLevelKey, 1);
+        LoadLevel(currentUnfinishedLevelIndex);
+    }
+
     public static void RestartLevel()
     {
         LoadLevel(SceneManager.GetActiveScene().buildIndex);
     }
 
-    public static void LoadMenu()
+    public static void LoadGarage()
     {
-        SceneManager.LoadScene(0);
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Garage");
+    }
+}
+
+public static class MoneyVisualFormatter
+{
+    public static string Format(int amount)
+    {
+        if (amount >= 1_000_000_000)
+            return (amount / 1_000_000_000f).ToString("0.#") + "B";
+        else if (amount >= 1_000_000)
+            return (amount / 1_000_000f).ToString("0.#") + "M";
+        else if (amount >= 1_000)
+            return (amount / 1_000f).ToString("0.#") + "K";
+        else
+            return amount.ToString();
     }
 }

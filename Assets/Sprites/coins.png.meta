@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a396e993e1f721c4db3b243ee2d98b95
+guid: 491a0582d3f895e43abbf42f1d78eaa6
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -54,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 300
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,177 +116,199 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: coins_0
-      rect:
-        serializedVersion: 2
-        x: 193
-        y: 234
-        width: 231
-        height: 233
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3414e180bd303b44da0f6394f2656f35
-      internalID: 389949314
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: coins_1
-      rect:
-        serializedVersion: 2
-        x: 424
-        y: 234
-        width: 231
-        height: 233
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 852514663dbef214daead17198f4d0d9
-      internalID: 1379313171
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: coins_2
+      name: coin50
       rect:
         serializedVersion: 2
         x: 655
-        y: 234
+        y: 232
         width: 231
-        height: 233
+        height: 232
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5cb070b0ff4bdb4db4892bafa59ac97
-      internalID: -1288542028
+      spriteID: f8fc364914263954cb40fa7f746465f4
+      internalID: -1015303255
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coins_3
+      name: gem
       rect:
         serializedVersion: 2
-        x: 193
-        y: 1
-        width: 231
-        height: 233
+        x: 885
+        y: 230
+        width: 157
+        height: 234
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90c1a131a88d2864d88f41c52e114cdf
-      internalID: -658626172
+      spriteID: 7eb140ba24ea07741a74e99b5e7b9cd0
+      internalID: -2066302767
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coins_4
+      name: coin20
       rect:
         serializedVersion: 2
         x: 424
-        y: 1
+        y: 232
         width: 231
-        height: 233
+        height: 232
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d137a443eb367e749ad480daad94adc9
-      internalID: -1736150320
+      spriteID: ccda22dcf85675f48a0d02f220dc88ca
+      internalID: -1352840047
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coins_5
+      name: coin10
       rect:
         serializedVersion: 2
-        x: 655
-        y: 1
-        width: 231
+        x: 193
+        y: 232
+        width: 230
         height: 233
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94569740c58cdcd45aac3ea7c1e94c74
-      internalID: 1602653612
+      spriteID: d2c0a99fcd62e634a9444c4edfc380d1
+      internalID: 48085234
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coins_6
+      name: coin100
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 231
+        height: 232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff427cadcc1637b4c8a52e8f058517c5
+      internalID: -1229491101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coin200
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 0
+        width: 231
+        height: 231
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04313748ae6f29247b3cb07f69aa3550
+      internalID: -2129851897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coin500
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 0
+        width: 231
+        height: 231
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2aa5b7b15a8987247a7af65f390edfdd
+      internalID: 1625362487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coin5
       rect:
         serializedVersion: 2
         x: 0
-        y: 255
+        y: 253
         width: 193
         height: 193
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edb1dbbedff016240a424062883f36e2
-      internalID: 260095963
+      spriteID: 12a1b099364f5274587c327b93709e04
+      internalID: -674595986
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coins_7
+      name: coinEmpty
       rect:
         serializedVersion: 2
-        x: 17
-        y: 0
-        width: 157
-        height: 237
+        x: 0
+        y: 20
+        width: 193
+        height: 193
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b9bcc0d6d672fb489c736950c84a47a
-      internalID: -1599249436
+      spriteID: d8d4e3e45e928034fb05712e2ec0641c
+      internalID: -35325851
       vertices: []
       indices: 
       edges: []
@@ -295,7 +317,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7c17417e2c07a5a47bf8a72f2e4847ff
+    spriteID: 11fecacb032522c4994ce9857575e5a2
     internalID: 0
     vertices: []
     indices: 
@@ -305,14 +327,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      coins_0: 389949314
-      coins_1: 1379313171
-      coins_2: -1288542028
-      coins_3: -658626172
-      coins_4: -1736150320
-      coins_5: 1602653612
-      coins_6: 260095963
-      coins_7: -1599249436
+      coin10: 48085234
+      coin100: -1229491101
+      coin20: -1352840047
+      coin200: -2129851897
+      coin5: -674595986
+      coin50: -1015303255
+      coin500: 1625362487
+      coinEmpty: -35325851
+      gem: -2066302767
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

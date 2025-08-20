@@ -7,50 +7,15 @@
       "$values": [
         {
           "$type": "Esper.ESave.SavableObjects.SavableVector, ESave, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "x": -1.34263217,
-          "y": 5.272426,
+          "x": -4.63237524,
+          "y": 9.656103,
           "z": 0.0,
           "w": 0.0
         },
         {
           "$type": "Esper.ESave.SavableObjects.SavableVector, ESave, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "x": 2.4002586E-10,
-          "y": 6.715469,
-          "z": 0.0,
-          "w": 0.0
-        },
-        {
-          "$type": "Esper.ESave.SavableObjects.SavableVector, ESave, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "x": -2.55596614,
-          "y": 6.715469,
-          "z": 0.0,
-          "w": 0.0
-        },
-        {
-          "$type": "Esper.ESave.SavableObjects.SavableVector, ESave, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "x": 1.58078563,
-          "y": 5.774474,
-          "z": 0.0,
-          "w": 0.0
-        },
-        {
-          "$type": "Esper.ESave.SavableObjects.SavableVector, ESave, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "x": -1.60795784,
-          "y": 6.67029667,
-          "z": 0.0,
-          "w": 0.0
-        },
-        {
-          "$type": "Esper.ESave.SavableObjects.SavableVector, ESave, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "x": 1.052755,
-          "y": 5.79245424,
-          "z": 0.0,
-          "w": 0.0
-        },
-        {
-          "$type": "Esper.ESave.SavableObjects.SavableVector, ESave, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "x": -1.92186451,
-          "y": 4.803437,
+          "x": -3.9873755,
+          "y": 9.656103,
           "z": 0.0,
           "w": 0.0
         }

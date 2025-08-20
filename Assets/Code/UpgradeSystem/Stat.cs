@@ -88,7 +88,7 @@ public class Stat : ScriptableObject
         return true;
     }
 
-    public void TryUpgradeLevel()
+    public bool TryUpgradeLevel()
     {
         var didUpgrade = TryUpgrade();
 
@@ -97,10 +97,12 @@ public class Stat : ScriptableObject
             Debug.Log($"upgraded {this.upgradeName} to Level {this.CurrentLevel}");
             if (FindAnyObjectByType<VehicleUpgradeManager>() != null)
                 FindAnyObjectByType<VehicleUpgradeManager>().UpdatePlayerModifiers();
+            return true;
         }
         else
         {
             Debug.Log("Cannot Upgrade");
+            return false;
         }
 
     }

@@ -3,10 +3,10 @@ using UnityEngine;
 public class SimpleParallax : MonoBehaviour
 {
     [Tooltip("Usually your Main Camera")]
-    public Transform cam;
+    [SerializeField] Transform cam;
 
     [Tooltip("How much this layer moves relative to the camera. 0 = static, 1 = same as camera")]
-    public float parallaxEffect = 0.5f;
+    [SerializeField] float parallaxEffect = 0.5f;
 
     Vector3 startPos;
 

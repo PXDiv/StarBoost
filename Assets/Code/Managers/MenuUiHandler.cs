@@ -1,30 +1,31 @@
 using System.Collections.Generic;
 using System.Linq;
+using BrunoMikoski.AnimationSequencer;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 public class MenuUiHandler : MonoBehaviour
 {
     [SerializeField] TMP_Text moneyText;
     [SerializeField] UpgradeButton engineUpgradeButton, fuelUpgradeButton;
+    [SerializeField] AnimationSequencer garagePlayerVehicleAnimationSequencer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Time.timeScale = 1;
         RefreshUI();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void RefreshUI()
     {
-        moneyText.text = MoneyMan.CurrentMoneyAmount.ToString("$000");
+        moneyText.text = MoneyVisualFormatter.Format(MoneyMan.CurrentMoneyAmount);
 
         List<UpgradeButton> upgradeButtons = FindObjectsByType<UpgradeButton>(FindObjectsInactive.Exclude, FindObjectsSortMode.None).ToList();
         upgradeButtons.ForEach(a => a.RefreshButtonInfo());
+    }
+
+    public void UpgradeAnimateGarageVehicle()
+    {
+        garagePlayerVehicleAnimationSequencer.Play();
     }
 }
