@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &352755 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7051112586983950988, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
+  m_PrefabInstance: {fileID: 1915885375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &213812985
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1515,6 +1520,18 @@ PrefabInstance:
       value: 239.0938
       objectReference: {fileID: 0}
     - target: {fileID: 2508237307465756152, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508237307465756152, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508237307465756152, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508237307465756152, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -2026,6 +2043,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 870493313}
   m_CullTransparentMesh: 1
+--- !u!1 &1009389702 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7051112586983950988, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
+  m_PrefabInstance: {fileID: 3073728541498998332}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1054985654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2055,6 +2077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7047b7e97dbf544fb99671fbc3b448d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startLevel: 2
 --- !u!4 &1054985656
 Transform:
   m_ObjectHideFlags: 0
@@ -2447,6 +2470,7 @@ GameObject:
   - component: {fileID: 1306305415}
   - component: {fileID: 1306305417}
   - component: {fileID: 1306305416}
+  - component: {fileID: 1306305418}
   m_Layer: 5
   m_Name: UpgradePanel
   m_TagString: Untagged
@@ -2514,6 +2538,321 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306305414}
   m_CullTransparentMesh: 1
+--- !u!114 &1306305418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306305414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93080415e4fdb3048a205b33af1e5a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationSteps:
+  - rid: 166515998872043749
+  - rid: 166515998872043735
+  - rid: 166515998872043737
+  - rid: 166515998872043739
+  - rid: 166515998872043740
+  - rid: 166515998872043747
+  updateType: 0
+  timeScaleIndependent: 0
+  autoplayMode: 1
+  startPaused: 0
+  playbackSpeed: 1
+  playType: 0
+  dynamicStartValues: 0
+  loops: 0
+  loopType: 0
+  autoKill: 1
+  onAnimationStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onAnimationProgress:
+    m_PersistentCalls:
+      m_Calls: []
+  onAnimationFinish:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 166515998872043735
+      type: {class: TweenStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        delay: 0
+        flowType: 1
+        target: {fileID: 1009389702}
+        duration: 0.5
+        loopCount: 0
+        loopType: 0
+        actions:
+        - rid: 166515998872043736
+    - rid: 166515998872043736
+      type: {class: ScaleTweenAction, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        direction: 0
+        ease:
+          ease: 18
+          curve:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 0
+              inSlope: 0
+              outSlope: 1
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            - serializedVersion: 3
+              time: 1
+              value: 1
+              inSlope: 1
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+        toScale: {x: 0, y: 0, z: 0}
+        toPercentageMode: 0
+        axisConstraint: 0
+        snapping: 0
+    - rid: 166515998872043737
+      type: {class: TweenStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        delay: 0.1
+        flowType: 1
+        target: {fileID: 1926801496}
+        duration: 1
+        loopCount: 0
+        loopType: 0
+        actions:
+        - rid: 166515998872043738
+    - rid: 166515998872043738
+      type: {class: ScaleTweenAction, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        direction: 0
+        ease:
+          ease: 18
+          curve:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 0
+              inSlope: 0
+              outSlope: 1
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            - serializedVersion: 3
+              time: 1
+              value: 1
+              inSlope: 1
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+        toScale: {x: 0, y: 0, z: 0}
+        toPercentageMode: 0
+        axisConstraint: 0
+        snapping: 0
+    - rid: 166515998872043739
+      type: {class: TweenStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        delay: 0.2
+        flowType: 1
+        target: {fileID: 1832291816}
+        duration: 1
+        loopCount: 0
+        loopType: 0
+        actions:
+        - rid: 166515998872043741
+    - rid: 166515998872043740
+      type: {class: TweenStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        delay: 0.3
+        flowType: 1
+        target: {fileID: 352755}
+        duration: 1
+        loopCount: 0
+        loopType: 0
+        actions:
+        - rid: 166515998872043742
+    - rid: 166515998872043741
+      type: {class: ScaleTweenAction, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        direction: 0
+        ease:
+          ease: 18
+          curve:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 0
+              inSlope: 0
+              outSlope: 1
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            - serializedVersion: 3
+              time: 1
+              value: 1
+              inSlope: 1
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+        toScale: {x: 0, y: 0, z: 0}
+        toPercentageMode: 0
+        axisConstraint: 0
+        snapping: 0
+    - rid: 166515998872043742
+      type: {class: ScaleTweenAction, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        direction: 0
+        ease:
+          ease: 18
+          curve:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 0
+              inSlope: 0
+              outSlope: 1
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            - serializedVersion: 3
+              time: 1
+              value: 1
+              inSlope: 1
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+        toScale: {x: 0, y: 0, z: 0}
+        toPercentageMode: 0
+        axisConstraint: 0
+        snapping: 0
+    - rid: 166515998872043747
+      type: {class: TweenStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        delay: 0.6
+        flowType: 1
+        target: {fileID: 313964386}
+        duration: 1
+        loopCount: 0
+        loopType: 2
+        actions:
+        - rid: 166515998872043748
+    - rid: 166515998872043748
+      type: {class: PositionTweenAction, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        direction: 0
+        ease:
+          ease: 18
+          curve:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 0
+              inSlope: 0
+              outSlope: 1
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            - serializedVersion: 3
+              time: 1
+              value: 1
+              inSlope: 1
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+        toInputType: 0
+        toPosition: {x: 0, y: -500, z: 0}
+        toRelative: 1
+        toLocalSpace: 0
+        toTarget: {fileID: 0}
+        toOffset: {x: 0, y: 0, z: 0}
+        axisConstraint: 0
+        snapping: 0
+    - rid: 166515998872043749
+      type: {class: TweenStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        delay: 0
+        flowType: 0
+        target: {fileID: 282354744}
+        duration: 1
+        loopCount: 0
+        loopType: 0
+        actions:
+        - rid: 166515998872043750
+    - rid: 166515998872043750
+      type: {class: ScaleTweenAction, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        direction: 0
+        ease:
+          ease: 27
+          curve:
+            serializedVersion: 2
+            m_Curve:
+            - serializedVersion: 3
+              time: 0
+              value: 0
+              inSlope: 0
+              outSlope: 1
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            - serializedVersion: 3
+              time: 1
+              value: 1
+              inSlope: 1
+              outSlope: 0
+              tangentMode: 0
+              weightedMode: 0
+              inWeight: 0
+              outWeight: 0
+            m_PreInfinity: 2
+            m_PostInfinity: 2
+            m_RotationOrder: 4
+        toScale: {x: 0, y: 0, z: 0}
+        toPercentageMode: 0
+        axisConstraint: 0
+        snapping: 0
 --- !u!1 &1438211895
 GameObject:
   m_ObjectHideFlags: 0
@@ -3285,6 +3624,18 @@ PrefabInstance:
       value: 239.0938
       objectReference: {fileID: 0}
     - target: {fileID: 2508237307465756152, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508237307465756152, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508237307465756152, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508237307465756152, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -3528,6 +3879,11 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &1832291816 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7051112586983950988, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
+  m_PrefabInstance: {fileID: 600722664}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1839281531
 GameObject:
   m_ObjectHideFlags: 0
@@ -3936,6 +4292,18 @@ PrefabInstance:
       value: 239.0938
       objectReference: {fileID: 0}
     - target: {fileID: 2508237307465756152, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508237307465756152, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508237307465756152, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508237307465756152, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -4113,6 +4481,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2508237307465756152, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
   m_PrefabInstance: {fileID: 1915885375}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1926801496 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7051112586983950988, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
+  m_PrefabInstance: {fileID: 1768456945}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3073728541498998332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4168,6 +4541,18 @@ PrefabInstance:
     - target: {fileID: 2508237307465756152, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
       propertyPath: m_SizeDelta.y
       value: 239.0938
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508237307465756152, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508237307465756152, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2508237307465756152, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2508237307465756152, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
       propertyPath: m_LocalPosition.x
