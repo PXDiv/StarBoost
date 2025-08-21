@@ -1,8 +1,7 @@
-using NUnit.Framework.Constraints;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using DG.Tweening;
 public class UpgradeButton : MonoBehaviour
 {
     [SerializeField] Image upgradeIcon;
@@ -11,10 +10,16 @@ public class UpgradeButton : MonoBehaviour
     [SerializeField] TMP_Text costText;
     [SerializeField] Slider levelSlider;
     [SerializeField] Stat attachedStat;
+    [SerializeField] AudioClip playClip;
+
+    SFXPlayer sfxPlayer;
+    Ease ease;
 
     public void Start()
     {
         RefreshButtonInfo();
+        sfxPlayer = FindFirstObjectByType<SFXPlayer>();
+        GetComponent<Button>().onClick.AddListener(() => sfxPlayer.PlaySFX(playClip));
     }
 
     public void UpgradeStat()
@@ -25,6 +30,10 @@ public class UpgradeButton : MonoBehaviour
         if (didUpgrade)
         {
             menuUiHandler.UpgradeAnimateGarageVehicle();
+        }
+        else
+        {
+            transform.DOShakePosition(0.5f, strength: new Vector2(50, 0), vibrato: 10);
         }
         RefreshButtonInfo();
         menuUiHandler.RefreshUI();

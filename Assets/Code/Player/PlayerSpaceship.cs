@@ -25,6 +25,8 @@ public class PlayerSpaceship : MonoBehaviour
     [SerializeField] TMP_Text debugText;
     [SerializeField] GameObject paintSplashGameobj;
     [SerializeField] VariableJoystick joystick;
+    [SerializeField] AudioSource playerAudioSource;
+    [SerializeField] AudioClip fuelOverAudioClip;
     //[SerializeField] VehicleUpgradeManager upgradeManager;
 
     #endregion
@@ -76,6 +78,7 @@ public class PlayerSpaceship : MonoBehaviour
     void Start()
     {
         OnGameOver += SessionOver;
+        OnFuelOver += PlayFuelOverAudio;
         InvokeRepeating("UpdateDebugText", 0, 0.1f);
     }
     #endregion
@@ -85,6 +88,8 @@ public class PlayerSpaceship : MonoBehaviour
     {
         yInput = Input.GetMouseButton(0) ? 1f : 0f;
         xInput = joystick.Horizontal;
+
+        ManageAudio();
     }
     void FixedUpdate()
     {
@@ -210,6 +215,18 @@ public class PlayerSpaceship : MonoBehaviour
         {
             collision.GetComponent<IInteractable>().Interact(this);
         }
+    }
+    #endregion
+
+    #region PlayerAudio
+    void ManageAudio()
+    {
+        playerAudioSource.volume = yInput;
+    }
+
+    void PlayFuelOverAudio()
+    {
+        FindFirstObjectByType<SFXPlayer>().PlaySFX(fuelOverAudioClip);
     }
     #endregion
 

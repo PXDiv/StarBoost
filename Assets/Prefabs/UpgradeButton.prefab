@@ -767,6 +767,7 @@ MonoBehaviour:
   costText: {fileID: 8732782538394024036}
   levelSlider: {fileID: 4166639501076869986}
   attachedStat: {fileID: 11400000, guid: 31f4839c33899cc4cbd889c5f14730b1, type: 2}
+  playClip: {fileID: 8300000, guid: c1a8a065461a5aa4db4b1d93bc718658, type: 3}
 --- !u!114 &8797294145875269511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,7 +859,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: $121.1K
+  m_text: $12
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b9a2c5f83bfc26c489127adb06fb6e36, type: 2}
   m_sharedMaterial: {fileID: -7205356313008271018, guid: b9a2c5f83bfc26c489127adb06fb6e36, type: 2}
