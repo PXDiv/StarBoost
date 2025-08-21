@@ -22,7 +22,7 @@ public class GameUiHandler : MonoBehaviour
     void Start()
     {
         var fuelSliderAnchorMax = fuelSlider.GetComponent<RectTransform>();
-        print(playerSpaceship.SessionMaxFuel);
+        //print(playerSpaceship.SessionMaxFuel);
         fuelSliderAnchorMax.sizeDelta = new Vector2(playerSpaceship.SessionMaxFuel * 15f, fuelSliderAnchorMax.sizeDelta.y);
 
         InvokeRepeating("RefreshLowFuelWarning", 0.1f, 0.5f);
@@ -67,11 +67,11 @@ public class GameUiHandler : MonoBehaviour
 
     public void RestartLevel()
     {
-        LevelLoader.RestartLevel();
+        LevelManager.RestartLevel();
     }
 
     public void ExitToGarage()
     {
-        LevelLoader.LoadGarage();
+        LevelManager.LoadGarage();
     }
 }

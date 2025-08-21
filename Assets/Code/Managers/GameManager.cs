@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] int startLevel = 1;
     public void StartSession()
     {
-        LevelLoader.LoadCurrentUnfinishedLevel();
+        LevelManager.LoadCurrentUnfinishedLevel();
     }
 
     public void LoadScene(int levelNo)

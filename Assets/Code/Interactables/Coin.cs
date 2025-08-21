@@ -12,6 +12,7 @@ public class Coin : MonoBehaviour, IInteractable
         {
             var sessionManager = FindAnyObjectByType<SessionManager>();
             sessionManager.AddCollectCoinValue(coinValue);
+            FindFirstObjectByType<Spawner>().SpawnText(transform.position, text: $"+${CoinValue}");
 
             gameObject.transform.DOScale(Vector2.zero, 0.5f).SetEase(Ease.OutExpo).OnComplete(() => Destroy(gameObject, 1f));
             interacted = true;

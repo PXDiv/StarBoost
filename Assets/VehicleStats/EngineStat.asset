@@ -14,21 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   icon: {fileID: 3528154439952004137, guid: 61ca208fb4775a241be5ba2be32d2407, type: 3}
-  upgradeName: Engine
-  currentLevelIndex: 3
+  upgradeName: Engine Speed
+  currentLevelIndex: 0
   upgrades:
   - upgradeCost: 0
     upgradeModifier: 0
-  - upgradeCost: 5
+  - upgradeCost: 128
     upgradeModifier: 1
-  - upgradeCost: 12
+  - upgradeCost: 256
     upgradeModifier: 2
-  - upgradeCost: 24
+  - upgradeCost: 512
     upgradeModifier: 2.5
-  - upgradeCost: 48
+  - upgradeCost: 1024
     upgradeModifier: 3
-  - upgradeCost: 60
+  - upgradeCost: 2056
     upgradeModifier: 4
-  - upgradeCost: 80
+  - upgradeCost: 3000
     upgradeModifier: 5
   canUpgrade: 1

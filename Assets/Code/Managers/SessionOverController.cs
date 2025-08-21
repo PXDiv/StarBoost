@@ -28,7 +28,7 @@ public class SessionOverController : MonoBehaviour
 
     void Awake()
     {
-        garageButton.onClick.AddListener(() => LevelLoader.LoadGarage());
+        garageButton.onClick.AddListener(() => LevelManager.LoadGarage());
     }
 
     public void SetData(SessionEndData endData)
@@ -39,9 +39,8 @@ public class SessionOverController : MonoBehaviour
 
     public IEnumerator AnimateAndShowData()
     {
-
         //Reset and set Values for animation
-        dayText.text = $"Day {_endData.dayNumber} Over";
+        dayText.text = _endData.didCompleteLevel ? $"Level {LevelManager.GetActiveLevelNo()} Complete" : $"Fuel Empty";
         distanceTravelledText.text = _endData.completedLevelLength.ToString("00.0") + "m";
 
         //Transform[] textFieldsTransform = { distanceTravelledText.transform, rewardDistanceText.transform, rewardDestructionText.transform, coinsCollectedText.transform, totalRewardText.transform };
@@ -94,4 +93,5 @@ public struct SessionEndData
     public int totalReward;
     public float totalLevelLength;
     public float completedLevelLength;
+    public bool didCompleteLevel;
 }

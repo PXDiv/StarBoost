@@ -1,3 +1,4 @@
+using NUnit.Framework.Constraints;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,7 +39,7 @@ public class UpgradeButton : MonoBehaviour
         levelSlider.maxValue = statInfo.maxLevel;
         levelSlider.value = statInfo.level;
 
-        costText.text = statInfo.canUpgradeNext ? "$" + statInfo.upgradeCost : "Max";
+        costText.text = statInfo.canUpgradeNext ? "$" + MoneyVisualFormatter.Format(statInfo.upgradeCost) : "Max";
         upgradeIcon.sprite = statInfo.upgradeImage;
         GetComponent<Button>().interactable = statInfo.canUpgradeNext;
     }

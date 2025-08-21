@@ -7,15 +7,15 @@
       "$values": [
         {
           "$type": "Esper.ESave.SavableObjects.SavableVector, ESave, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "x": -4.63237524,
-          "y": 9.656103,
+          "x": 1.65720224,
+          "y": 3.36039424,
           "z": 0.0,
           "w": 0.0
         },
         {
           "$type": "Esper.ESave.SavableObjects.SavableVector, ESave, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "x": -3.9873755,
-          "y": 9.656103,
+          "x": -0.154667675,
+          "y": 6.859773,
           "z": 0.0,
           "w": 0.0
         }

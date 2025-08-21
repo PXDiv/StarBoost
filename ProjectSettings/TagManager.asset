@@ -47,6 +47,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BackParallaxLayer
+    uniqueID: 1395815451
+    locked: 0
+  - name: Weed
+    uniqueID: 2841258465
+    locked: 0
   - name: Obstacles
     uniqueID: 1364243473
     locked: 0
@@ -61,6 +67,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2590319209
+    locked: 0
+  - name: FrontParallaxLayer
+    uniqueID: 3485680301
     locked: 0
   - name: Overlay
     uniqueID: 1171770217

@@ -17,8 +17,17 @@ public class SessionManager : MonoBehaviour
     void Awake()
     {
         Resume();
-        spaceship.OnGameOver += DoSessionOver;
         sceneDaySaveKey = $"Level{SceneManager.GetActiveScene().buildIndex}Day";
+        print("Level: " + LevelManager.GetActiveLevelNo());
+    }
+
+    void OnEnable()
+    {
+        spaceship.OnGameOver += DoSessionOver;
+    }
+    void OnDisable()
+    {
+        spaceship.OnGameOver -= DoSessionOver;
     }
 
     public void DoSessionOver()
@@ -39,7 +48,7 @@ public class SessionManager : MonoBehaviour
         float maxHeightReached = isLevelFinished ? finishLineHeight : spaceship.MaxHeightReached;
 
         // Sets the Current Unfinished Level to the next one
-        if (isLevelFinished) { PlayerPrefs.SetInt(LevelLoader.CurrentUnfinishedLevelKey, SceneManager.GetActiveScene().buildIndex + 1); }
+        if (isLevelFinished) { PlayerPrefs.SetInt(LevelManager.CurrentUnfinishedLevelKey, LevelManager.GetActiveLevelNo() + 1); }
 
         int rewardGranted = CalculateReward(maxHeightReached, collectedCoinValue);
         MoneyMan.AddMoney(rewardGranted);
@@ -56,6 +65,8 @@ public class SessionManager : MonoBehaviour
 
             completedLevelLength = maxHeightReached,
             totalLevelLength = finishLineHeight,
+
+            didCompleteLevel = isLevelFinished,
         };
         sessionOver = true;
         flashFxSpriteRenderer.gameObject.SetActive(true);
@@ -122,42 +133,6 @@ public static class MoneyMan
         PlayerPrefs.SetInt("money", money);
         Debug.Log(CurrentMoneyAmount);
 
-    }
-}
-
-public static class LevelLoader
-{
-    public static readonly string CurrentUnfinishedLevelKey = "CurrentUnfinishedLevel";
-
-    public static void LoadLevel(int levelIndex)
-    {
-        Time.timeScale = 1;
-        SceneManager.LoadScene(levelIndex);
-        SceneManager.LoadSceneAsync("BootStraper", LoadSceneMode.Additive);
-    }
-
-    public static void LoadLevel(string levelName)
-    {
-        Time.timeScale = 1;
-        SceneManager.LoadScene(levelName);
-        SceneManager.LoadSceneAsync("BootStraper", LoadSceneMode.Additive);
-    }
-
-    public static void LoadCurrentUnfinishedLevel()
-    {
-        int currentUnfinishedLevelIndex = PlayerPrefs.GetInt(CurrentUnfinishedLevelKey, 1);
-        LoadLevel(currentUnfinishedLevelIndex);
-    }
-
-    public static void RestartLevel()
-    {
-        LoadLevel(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public static void LoadGarage()
-    {
-        Time.timeScale = 1;
-        SceneManager.LoadScene("Garage");
     }
 }
 
