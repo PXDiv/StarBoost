@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(levelNo);
     }
+    public void LoadScene(string levelName)
+    {
+        SceneManager.LoadScene(levelName);
+    }
 
     public void LoadSavedLevels()
     {

@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &352755 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7051112586983950988, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
-  m_PrefabInstance: {fileID: 1915885375}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &214677799 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9195346314057817792, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
@@ -493,7 +488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 105}
+  m_AnchoredPosition: {x: 0, y: 104.99994}
   m_SizeDelta: {x: 886.15, y: 134.0741}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &313964388
@@ -522,6 +517,17 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &317704776 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1821424522512651236, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
+  m_PrefabInstance: {fileID: 8862417100253859086}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &393799701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,9 +1067,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyText: {fileID: 1897475223}
-  engineUpgradeButton: {fileID: 0}
-  fuelUpgradeButton: {fileID: 0}
   garagePlayerVehicleAnimationSequencer: {fileID: 265449559}
+  StartButtonText: {fileID: 317704776}
 --- !u!114 &630755945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6153,11 +6158,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1 &1009389702 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7051112586983950988, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
-  m_PrefabInstance: {fileID: 3073728541498998332}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1054985654
 GameObject:
   m_ObjectHideFlags: 0
@@ -6328,7 +6328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9427306, g: 0.9547169, b: 0.80520463, a: 1}
+  m_Color: {r: 0.9939242, g: 1, b: 0.7905661, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6366,13 +6366,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationSteps:
+  - rid: 166516040562901115
   - rid: 166515998872043827
   - rid: 166515998872043749
-  - rid: 166515998872043735
-  - rid: 166515998872043737
-  - rid: 166515998872043739
-  - rid: 166515998872043740
+  - rid: 166516040562901105
   - rid: 166515998872043747
+  - rid: 166516040562901079
   updateType: 0
   timeScaleIndependent: 0
   autoplayMode: 1
@@ -6395,191 +6394,11 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 166515998872043735
-      type: {class: TweenStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
-      data:
-        delay: 0
-        flowType: 1
-        target: {fileID: 1009389702}
-        duration: 0.5
-        loopCount: 0
-        loopType: 0
-        actions:
-        - rid: 166515998872043736
-    - rid: 166515998872043736
-      type: {class: ScaleTweenAction, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
-      data:
-        direction: 0
-        ease:
-          ease: 18
-          curve:
-            serializedVersion: 2
-            m_Curve:
-            - serializedVersion: 3
-              time: 0
-              value: 0
-              inSlope: 0
-              outSlope: 1
-              tangentMode: 0
-              weightedMode: 0
-              inWeight: 0
-              outWeight: 0
-            - serializedVersion: 3
-              time: 1
-              value: 1
-              inSlope: 1
-              outSlope: 0
-              tangentMode: 0
-              weightedMode: 0
-              inWeight: 0
-              outWeight: 0
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
-        toScale: {x: 0, y: 0, z: 0}
-        toPercentageMode: 0
-        axisConstraint: 0
-        snapping: 0
-    - rid: 166515998872043737
-      type: {class: TweenStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
-      data:
-        delay: 0.1
-        flowType: 1
-        target: {fileID: 1926801496}
-        duration: 1
-        loopCount: 0
-        loopType: 0
-        actions:
-        - rid: 166515998872043738
-    - rid: 166515998872043738
-      type: {class: ScaleTweenAction, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
-      data:
-        direction: 0
-        ease:
-          ease: 18
-          curve:
-            serializedVersion: 2
-            m_Curve:
-            - serializedVersion: 3
-              time: 0
-              value: 0
-              inSlope: 0
-              outSlope: 1
-              tangentMode: 0
-              weightedMode: 0
-              inWeight: 0
-              outWeight: 0
-            - serializedVersion: 3
-              time: 1
-              value: 1
-              inSlope: 1
-              outSlope: 0
-              tangentMode: 0
-              weightedMode: 0
-              inWeight: 0
-              outWeight: 0
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
-        toScale: {x: 0, y: 0, z: 0}
-        toPercentageMode: 0
-        axisConstraint: 0
-        snapping: 0
-    - rid: 166515998872043739
-      type: {class: TweenStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
-      data:
-        delay: 0.2
-        flowType: 1
-        target: {fileID: 1832291816}
-        duration: 1
-        loopCount: 0
-        loopType: 0
-        actions:
-        - rid: 166515998872043741
-    - rid: 166515998872043740
-      type: {class: TweenStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
-      data:
-        delay: 0.3
-        flowType: 1
-        target: {fileID: 352755}
-        duration: 1
-        loopCount: 0
-        loopType: 0
-        actions:
-        - rid: 166515998872043742
-    - rid: 166515998872043741
-      type: {class: ScaleTweenAction, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
-      data:
-        direction: 0
-        ease:
-          ease: 18
-          curve:
-            serializedVersion: 2
-            m_Curve:
-            - serializedVersion: 3
-              time: 0
-              value: 0
-              inSlope: 0
-              outSlope: 1
-              tangentMode: 0
-              weightedMode: 0
-              inWeight: 0
-              outWeight: 0
-            - serializedVersion: 3
-              time: 1
-              value: 1
-              inSlope: 1
-              outSlope: 0
-              tangentMode: 0
-              weightedMode: 0
-              inWeight: 0
-              outWeight: 0
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
-        toScale: {x: 0, y: 0, z: 0}
-        toPercentageMode: 0
-        axisConstraint: 0
-        snapping: 0
-    - rid: 166515998872043742
-      type: {class: ScaleTweenAction, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
-      data:
-        direction: 0
-        ease:
-          ease: 18
-          curve:
-            serializedVersion: 2
-            m_Curve:
-            - serializedVersion: 3
-              time: 0
-              value: 0
-              inSlope: 0
-              outSlope: 1
-              tangentMode: 0
-              weightedMode: 0
-              inWeight: 0
-              outWeight: 0
-            - serializedVersion: 3
-              time: 1
-              value: 1
-              inSlope: 1
-              outSlope: 0
-              tangentMode: 0
-              weightedMode: 0
-              inWeight: 0
-              outWeight: 0
-            m_PreInfinity: 2
-            m_PostInfinity: 2
-            m_RotationOrder: 4
-        toScale: {x: 0, y: 0, z: 0}
-        toPercentageMode: 0
-        axisConstraint: 0
-        snapping: 0
     - rid: 166515998872043747
       type: {class: TweenStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
       data:
-        delay: 0.6
-        flowType: 1
+        delay: 0
+        flowType: 0
         target: {fileID: 313964386}
         duration: 1
         loopCount: 0
@@ -6711,6 +6530,78 @@ MonoBehaviour:
             m_PostInfinity: 2
             m_RotationOrder: 4
         toAlpha: 0
+    - rid: 166516040562901079
+      type: {class: InvokeCallbackStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        delay: 0
+        flowType: 1
+        callback:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 630755946}
+              m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+              m_MethodName: PlayOneShot
+              m_Mode: 2
+              m_Arguments:
+                m_ObjectArgument: {fileID: 8300000, guid: 52cd05f7fe5bf754390a982ed018c6ca, type: 3}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+    - rid: 166516040562901105
+      type: {class: InvokeCallbackStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        delay: 0.5
+        flowType: 1
+        callback:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1652496749}
+              m_TargetAssemblyTypeName: UpgradeListController, Assembly-CSharp
+              m_MethodName: AnimateListIn
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+    - rid: 166516040562901115
+      type: {class: InvokeCallbackStep, ns: BrunoMikoski.AnimationSequencer, asm: BrunoMikoski.AnimationSequencer}
+      data:
+        delay: 0
+        flowType: 0
+        callback:
+          m_PersistentCalls:
+            m_Calls:
+            - m_Target: {fileID: 1652496749}
+              m_TargetAssemblyTypeName: UpgradeListController, Assembly-CSharp
+              m_MethodName: ResetAnimation
+              m_Mode: 1
+              m_Arguments:
+                m_ObjectArgument: {fileID: 0}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
+            - m_Target: {fileID: 630755946}
+              m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+              m_MethodName: PlayOneShot
+              m_Mode: 2
+              m_Arguments:
+                m_ObjectArgument: {fileID: 8300000, guid: 981927000d9f11742bdf94b78b680671, type: 3}
+                m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+                m_IntArgument: 0
+                m_FloatArgument: 0
+                m_StringArgument: 
+                m_BoolArgument: 0
+              m_CallState: 2
 --- !u!225 &1306305419
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6808,6 +6699,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1652496747}
   - component: {fileID: 1652496748}
+  - component: {fileID: 1652496749}
   m_Layer: 5
   m_Name: UpgradeList
   m_TagString: Untagged
@@ -6864,6 +6756,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1652496749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652496746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54fc63f40413de041b68b8e6ef373d1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spaceships: []
+  currentVehicle: {fileID: 0}
+  upgradeButtons: []
 --- !u!1001 &1768456945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7185,11 +7092,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788301505}
   m_CullTransparentMesh: 1
---- !u!1 &1832291816 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7051112586983950988, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
-  m_PrefabInstance: {fileID: 600722664}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1896617825
 GameObject:
   m_ObjectHideFlags: 0
@@ -7566,6 +7468,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6497275172625737817, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
+      propertyPath: playClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f5d099c7a40edb844a583ee1693ea567, type: 3}
+    - target: {fileID: 6497275172625737817, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
       propertyPath: attachedStat
       value: 
       objectReference: {fileID: 11400000, guid: 4ec1fd76c2f36a84db3d59d1aec7c866, type: 2}
@@ -7651,11 +7557,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2508237307465756152, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
   m_PrefabInstance: {fileID: 1915885375}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1926801496 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7051112586983950988, guid: af640405b60c6ed46bebe825d37c48b1, type: 3}
-  m_PrefabInstance: {fileID: 1768456945}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1945117723
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7664,16 +7565,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 313964387}
     m_Modifications:
-    - target: {fileID: 1821424522512651236, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
-      propertyPath: m_text
-      value: Reset
-      objectReference: {fileID: 0}
     - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
@@ -7681,31 +7578,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1063432036}
     - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 630755944}
     - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: DeleteAllSavedData
-      objectReference: {fileID: 0}
-    - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: RefreshUI
       objectReference: {fileID: 0}
     - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ScorePositionsSaver, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: MenuUiHandler, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5902199175084051491, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
@@ -8028,10 +7917,54 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 313964387}
     m_Modifications:
+    - target: {fileID: 1821424522512651236, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
+      propertyPath: m_text
+      value: Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821424522512651236, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1054985655}
+    - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 630755946}
+    - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartSession
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayOneShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.AudioSource, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864220419585648666, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.AudioClip, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5902199175084051491, guid: 2435aa71d4f7b8d4d940234ce8796306, type: 3}
       propertyPath: m_Name
       value: StartGame

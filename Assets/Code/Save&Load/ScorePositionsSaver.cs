@@ -5,18 +5,21 @@ using UnityEngine;
 
 public class ScorePositionsSaver : MonoBehaviour
 {
-    private const string saveKey = "scorePositions";
+    private string saveKey = "scorePositions";
     public List<Vector2> scorePositions = new List<Vector2>();
     SaveFileSetup saveFileSetup;
     SaveFile saveFile;
 
     public void Awake()
     {
+
         saveFileSetup = GetComponent<SaveFileSetup>();
         saveFile = saveFileSetup.GetSaveFile();
+
     }
     public void Start()
     {
+        //saveKey = "scorePositions" + LevelManager.GetActiveLevelNo();
         //LoadPositions();
     }
 
@@ -35,7 +38,7 @@ public class ScorePositionsSaver : MonoBehaviour
             print("saved " + pos);
         }
 
-        DeleteAllScores();
+        DeleteAllScorePositions();
         saveFile.AddOrUpdateData(saveKey, savableList);
         saveFile.Save();
     }
@@ -64,7 +67,7 @@ public class ScorePositionsSaver : MonoBehaviour
     }
 
 
-    public void DeleteAllScores()
+    public void DeleteAllScorePositions()
     {
         saveFile.DeleteData(saveKey);
         saveFile.Save();
@@ -72,7 +75,7 @@ public class ScorePositionsSaver : MonoBehaviour
 
     public void DeleteAllSavedData()
     {
-        DeleteAllScores();
+        DeleteAllScorePositions();
         PlayerPrefs.DeleteAll();
     }
 }

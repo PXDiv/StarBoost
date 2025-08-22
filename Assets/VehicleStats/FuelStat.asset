@@ -21,15 +21,15 @@ MonoBehaviour:
     upgradeModifier: 0
   - upgradeCost: 2
     upgradeModifier: 4
-  - upgradeCost: 4
-    upgradeModifier: 8
   - upgradeCost: 8
-    upgradeModifier: 12
+    upgradeModifier: 8
   - upgradeCost: 16
-    upgradeModifier: 15
+    upgradeModifier: 12
   - upgradeCost: 24
+    upgradeModifier: 15
+  - upgradeCost: 32
     upgradeModifier: 17
-  - upgradeCost: 30
+  - upgradeCost: 64
     upgradeModifier: 19
   - upgradeCost: 0
     upgradeModifier: 22

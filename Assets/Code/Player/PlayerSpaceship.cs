@@ -33,8 +33,8 @@ public class PlayerSpaceship : MonoBehaviour
 
     #region Events
     //Events
-    public Action OnGameOver;
-    public Action OnFuelOver;
+    public Action<GameOverCause> GameOverEvent;
+
 
     #endregion
 
@@ -77,8 +77,8 @@ public class PlayerSpaceship : MonoBehaviour
     }
     void Start()
     {
-        OnGameOver += SessionOver;
-        OnFuelOver += PlayFuelOverAudio;
+        GameOverEvent += SessionOver;
+        GameOverEvent += PlayFuelOverAudio;
         InvokeRepeating("UpdateDebugText", 0, 0.1f);
     }
     #endregion
@@ -102,12 +102,11 @@ public class PlayerSpaceship : MonoBehaviour
         else if (IsFuelAvailable() == false && transform.position.y > maxHeightReached)
         {
             maxHeightReached = transform.position.y;
-            if (!fuelOver) { OnFuelOver?.Invoke(); fuelOver = true; }
         }
         else if (gameOver == false && transform.position.y < maxHeightReached)
         {
             gameOver = true;
-            OnGameOver?.Invoke();
+            GameOverEvent?.Invoke(GameOverCause.fuelOver);
         }
 
     }
@@ -224,14 +223,20 @@ public class PlayerSpaceship : MonoBehaviour
         playerAudioSource.volume = yInput;
     }
 
-    void PlayFuelOverAudio()
+    void PlayFuelOverAudio(GameOverCause gameOverCause)
     {
         FindFirstObjectByType<SFXPlayer>().PlaySFX(fuelOverAudioClip);
     }
     #endregion
 
-    #region Other
-    void SessionOver()
+    #region Session
+    public void HitPlayer()
+    {
+        maxHeightReached = transform.position.y;
+        GameOverEvent.Invoke(GameOverCause.enemyHit);
+    }
+
+    void SessionOver(GameOverCause gameOverCause)
     {
         rb.gravityScale = 0;
         Instantiate(paintSplashGameobj, transform.position, quaternion.identity);
@@ -240,4 +245,11 @@ public class PlayerSpaceship : MonoBehaviour
     }
     #endregion
 
+}
+
+public enum GameOverCause
+{
+    fuelOver,
+    enemyHit,
+    levelComplete
 }

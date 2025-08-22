@@ -23,38 +23,45 @@ public class SessionManager : MonoBehaviour
 
     void OnEnable()
     {
-        spaceship.OnGameOver += DoSessionOver;
+        spaceship.GameOverEvent += DoSessionOver;
     }
     void OnDisable()
     {
-        spaceship.OnGameOver -= DoSessionOver;
+        spaceship.GameOverEvent -= DoSessionOver;
     }
 
-    public void DoSessionOver()
+    #region Session
+    public void DoSessionOver(GameOverCause l_gameOverCause)
     {
         if (sessionOver)
         { return; }
 
-        StartCoroutine(SessionOverCo(delay: 1));
 
-    }
-    private IEnumerator SessionOverCo(float delay)
-    {
+        //Get and set the Finish Line Height
         float finishLineHeight = 0;
-
         if (FindFirstObjectByType<FinishLine>() != null)
         { finishLineHeight = FindFirstObjectByType<FinishLine>().transform.position.y; }
 
-        float maxHeightReached = isLevelFinished ? finishLineHeight : spaceship.MaxHeightReached;
-
         // Sets the Current Unfinished Level to the next one
-        if (isLevelFinished) { PlayerPrefs.SetInt(LevelManager.CurrentUnfinishedLevelKey, LevelManager.GetActiveLevelNo() + 1); }
+        // Reset the saved positions as we move into the new level
+        if (isLevelFinished)
+        {
+            Debug.Log("Level Finished");
+            PlayerPrefs.SetInt(LevelManager.CurrentUnfinishedLevelKey, LevelManager.GetActiveLevelNo() + 1);
+            var saver = FindAnyObjectByType<ScorePositionsSaver>();
+            if (saver != null)
+            { saver.DeleteAllScorePositions(); }
+        }
 
+        //Rewards and Calculation
+        float maxHeightReached = isLevelFinished ? finishLineHeight : spaceship.MaxHeightReached;
         int rewardGranted = CalculateReward(maxHeightReached, collectedCoinValue);
         MoneyMan.AddMoney(rewardGranted);
 
+        //Current Day Calc
         PlayerPrefs.SetInt(sceneDaySaveKey, PlayerPrefs.GetInt(sceneDaySaveKey, 0) + 1);
 
+        //Sending Session Data
         SessionEndData endData = new SessionEndData
         {
             dayNumber = PlayerPrefs.GetInt(sceneDaySaveKey),
@@ -66,9 +73,19 @@ public class SessionManager : MonoBehaviour
             completedLevelLength = maxHeightReached,
             totalLevelLength = finishLineHeight,
 
-            didCompleteLevel = isLevelFinished,
+            gameOverCause = l_gameOverCause
         };
+
+
         sessionOver = true;
+
+        StartCoroutine(SessionOverCo(delay: 1, endData));
+    }
+    private IEnumerator SessionOverCo(float delay, SessionEndData endData)
+    {
+
+
+        //FX and stop session
         flashFxSpriteRenderer.gameObject.SetActive(true);
         flashFxSpriteRenderer.DOFade(0, 1f).From(1).SetUpdate(true);
         Pause();
@@ -76,6 +93,15 @@ public class SessionManager : MonoBehaviour
         SessionOver?.Invoke(endData);
     }
 
+    public void LevelCleared()
+    {
+        isLevelFinished = true;
+        DoSessionOver(GameOverCause.levelComplete);
+    }
+
+    #endregion
+
+    #region Reward Stuff
     public int CalculateReward(float heightReached, int itemValueDestroyed = 0, int coinsCollected = 0)
     {
         float formula = (heightReached / 2) + itemValueDestroyed + coinsCollected;
@@ -88,7 +114,9 @@ public class SessionManager : MonoBehaviour
     {
         collectedCoinValue += coinValue;
     }
+    #endregion
 
+    #region TimeStuff
     public void Pause()
     {
         Time.timeScale = 0;
@@ -98,12 +126,8 @@ public class SessionManager : MonoBehaviour
     {
         Time.timeScale = 1;
     }
+    #endregion
 
-    public void LevelCleared(FinishLine finishLine)
-    {
-        isLevelFinished = true;
-        DoSessionOver();
-    }
 
 
 }

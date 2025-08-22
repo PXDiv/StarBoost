@@ -1,47 +1,40 @@
 {
   "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Esper.ESave.SavableObjects.SavableObject, ESave, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
-  "scorePositions": {
+  "scorePositions3": {
     "$type": "Esper.ESave.SavableObjects.SavableData`1[[System.Collections.Generic.List`1[[Esper.ESave.SavableObjects.SavableVector, ESave, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], ESave, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
     "value": {
       "$type": "System.Collections.Generic.List`1[[Esper.ESave.SavableObjects.SavableVector, ESave, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
       "$values": [
         {
           "$type": "Esper.ESave.SavableObjects.SavableVector, ESave, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "x": -0.7655635,
-          "y": 4.75728464,
+          "x": -8.48001655E-05,
+          "y": 6.867028,
           "z": 0.0,
           "w": 0.0
         },
         {
           "$type": "Esper.ESave.SavableObjects.SavableVector, ESave, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "x": 1.12320042,
-          "y": 2.19365478,
+          "x": -0.130271971,
+          "y": 7.369359,
           "z": 0.0,
           "w": 0.0
         },
         {
           "$type": "Esper.ESave.SavableObjects.SavableVector, ESave, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "x": 1.127366,
-          "y": 2.03197885,
+          "x": 0.0131064467,
+          "y": 9.397518,
           "z": 0.0,
           "w": 0.0
         },
         {
           "$type": "Esper.ESave.SavableObjects.SavableVector, ESave, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "x": 1.16986382,
-          "y": 3.23497248,
-          "z": 0.0,
-          "w": 0.0
-        },
-        {
-          "$type": "Esper.ESave.SavableObjects.SavableVector, ESave, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
-          "x": -0.286576062,
-          "y": 7.186878,
+          "x": -0.166457281,
+          "y": 6.508926,
           "z": 0.0,
           "w": 0.0
         }
       ]
     },
-    "id": "scorePositions"
+    "id": "scorePositions3"
   }
 }

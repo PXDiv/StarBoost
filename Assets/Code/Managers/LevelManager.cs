@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,7 +13,7 @@ public static class LevelManager
         Time.timeScale = 1;
 
         LevelList levelList = Resources.Load<LevelList>("LevelList");
-        if (levelNo <= levelList.GetAvailableLevelList().Count)
+        if (levelNo <= levelList.GetAvailableLevelNamesList().Count)
         {
             SceneManager.LoadScene(levelList.GetSceneNameByLevelNumber(levelNo));
             SceneManager.LoadSceneAsync("BootStraper", LoadSceneMode.Additive);
@@ -36,6 +38,12 @@ public static class LevelManager
         LoadLevel(currentUnfinishedLevelNo);
     }
 
+    public static int GetCurrentUnfinishedLevelNo()
+    {
+        return PlayerPrefs.GetInt(CurrentUnfinishedLevelKey, 1);
+    }
+
+
     public static int GetActiveLevelNo()
     {
         LevelList levelList = Resources.Load<LevelList>("LevelList");
@@ -51,5 +59,17 @@ public static class LevelManager
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("Garage");
+    }
+
+    public static int GetLevelsCount()
+    {
+        LevelList levelList = Resources.Load<LevelList>("LevelList");
+        return levelList.GetAvailableLevelNamesList().Count;
+    }
+
+    public static List<String> GetAllLevelSceneNameList()
+    {
+        LevelList levelList = Resources.Load<LevelList>("LevelList");
+        return levelList.GetAvailableLevelNamesList();
     }
 }

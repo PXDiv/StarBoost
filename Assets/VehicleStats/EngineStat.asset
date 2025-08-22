@@ -19,7 +19,7 @@ MonoBehaviour:
   upgrades:
   - upgradeCost: 0
     upgradeModifier: 0
-  - upgradeCost: 128
+  - upgradeCost: 32
     upgradeModifier: 1
   - upgradeCost: 256
     upgradeModifier: 2

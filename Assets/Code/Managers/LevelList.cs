@@ -1,15 +1,22 @@
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+#if UNITY_EDITOR
+using UnityEditor; // only available in editor
+#endif
 
 [CreateAssetMenu(fileName = "LevelList", menuName = "Scriptable Objects/LevelList")]
 public class LevelList : ScriptableObject
 {
-    [SerializeField] private List<SceneAsset> availableLevels;
-    [SerializeField] private List<string> sceneNames; // runtime-safe names
+#if UNITY_EDITOR
+    [SerializeField] private List<SceneAsset> availableLevels; // editor-only
+#endif
 
-    // Called in editor when values change
+    [SerializeField, HideInInspector] private List<string> sceneNames; // runtime-safe names
+
+#if UNITY_EDITOR
+    // Auto-update sceneNames whenever assets change
     private void OnValidate()
     {
         sceneNames = new List<string>();
@@ -19,7 +26,9 @@ public class LevelList : ScriptableObject
                 sceneNames.Add(scene.name);
         }
     }
+#endif
 
+    // 🔥 Runtime-safe API (works in builds)
     public string GetSceneNameByLevelNumber(int levelNo)
     {
         return sceneNames[levelNo - 1];
@@ -31,7 +40,7 @@ public class LevelList : ScriptableObject
         return sceneNames.IndexOf(activeSceneName) + 1; // +1 since levels start at 1
     }
 
-    public List<string> GetAvailableLevelList()
+    public List<string> GetAvailableLevelNamesList()
     {
         return new List<string>(sceneNames);
     }

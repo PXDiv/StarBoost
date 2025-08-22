@@ -4,7 +4,7 @@ public class SpaceshipFireVisual : MonoBehaviour
 {
 
     [SerializeField] PlayerSpaceship playerSpaceship;
-    [SerializeField] float maxScale;
+    [SerializeField] float maxScale = 1;
 
     float calculatedMaxScale;
 

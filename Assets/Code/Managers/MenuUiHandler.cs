@@ -3,12 +3,12 @@ using System.Linq;
 using BrunoMikoski.AnimationSequencer;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 public class MenuUiHandler : MonoBehaviour
 {
     [SerializeField] TMP_Text moneyText;
-    [SerializeField] UpgradeButton engineUpgradeButton, fuelUpgradeButton;
     [SerializeField] AnimationSequencer garagePlayerVehicleAnimationSequencer;
-
+    [SerializeField] TMP_Text StartButtonText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,7 +19,7 @@ public class MenuUiHandler : MonoBehaviour
     public void RefreshUI()
     {
         moneyText.text = MoneyVisualFormatter.Format(MoneyMan.CurrentMoneyAmount);
-
+        StartButtonText.text = "Start Level " + LevelManager.GetCurrentUnfinishedLevelNo();
         List<UpgradeButton> upgradeButtons = FindObjectsByType<UpgradeButton>(FindObjectsInactive.Exclude, FindObjectsSortMode.None).ToList();
         upgradeButtons.ForEach(a => a.RefreshButtonInfo());
     }
