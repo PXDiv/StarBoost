@@ -3,7 +3,6 @@ using System.Linq;
 using BrunoMikoski.AnimationSequencer;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 public class MenuUiHandler : MonoBehaviour
 {
     [SerializeField] TMP_Text moneyText;

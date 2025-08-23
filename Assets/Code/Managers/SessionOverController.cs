@@ -11,6 +11,7 @@ public class SessionOverController : MonoBehaviour
     [SerializeField] float animationInbetweenInterval = 0.2f;
     [SerializeField] Slider levelProgressSlider;
     [SerializeField] Ease easeSlider, easeTexts;
+    [SerializeField] AudioClip sliderFinishAudioClip;
 
     [SerializeField]
     TMP_Text
@@ -64,7 +65,7 @@ public class SessionOverController : MonoBehaviour
 
         rewardDistanceText.text = $": ${MoneyVisualFormatter.Format(_endData.rewardDistance)}";
         rewardDestructionText.text = $": ${MoneyVisualFormatter.Format(_endData.rewardDestruction)}";
-        coinsCollectedText.text = $": ${MoneyVisualFormatter.Format(_endData.coinCollectedReward)}";
+        coinsCollectedText.text = $": ${MoneyVisualFormatter.Format(_endData.rewardCoinCollection)}";
         totalRewardText.text = $": ${MoneyVisualFormatter.Format(_endData.totalReward)}";
 
         levelProgressSlider.maxValue = _endData.totalLevelLength;
@@ -76,8 +77,19 @@ public class SessionOverController : MonoBehaviour
         // yield return new WaitForSecondsRealtime(0.5f);
 
         //Slider Animation
+        SFXPlayer sfxPlayer = FindFirstObjectByType<SFXPlayer>();
+        GameCameraController cameraController = FindFirstObjectByType<GameCameraController>();
+        levelProgressSlider.DOValue(_endData.completedLevelLength, sliderAnimationDuration).SetEase(easeSlider).SetUpdate(true).OnComplete(
+            () =>
+            {
+                container.transform.DOShakePosition(0.5f, 5, 20).SetUpdate(true);
+                if (_endData.gameOverCause == GameOverCause.levelComplete)
+                {
+                    sfxPlayer.PlaySFX(sliderFinishAudioClip);
+                }
+            });
 
-        levelProgressSlider.DOValue(_endData.completedLevelLength, sliderAnimationDuration).SetEase(easeSlider).SetUpdate(true);
+
 
         // //Text Animations
         // yield return new WaitForSecondsRealtime(sliderAnimationDuration);
@@ -101,7 +113,7 @@ public struct SessionEndData
     public int dayNumber;
     public int rewardDistance;
     public int rewardDestruction;
-    public int coinCollectedReward;
+    public int rewardCoinCollection;
     public int totalReward;
     public float totalLevelLength;
     public float completedLevelLength;

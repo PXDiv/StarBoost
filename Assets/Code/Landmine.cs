@@ -4,6 +4,7 @@ using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 
+[ExecuteAlways] // ensures it can also update while not playing (optional)
 public class Landmine : InteractableBase
 {
     [Header("Landmine Vars")]
@@ -12,25 +13,46 @@ public class Landmine : InteractableBase
     [SerializeField] float vibrationStrength = 0.05f;
     [SerializeField] float delayInterval = 0.5f;
     [SerializeField] int intervalTimes = 3;
+    [SerializeField] int reward = 10;
 
     [Header("Refs")]
-    [SerializeField] GameManager radiusVisualizerObj;
+    [SerializeField] GameObject radiusVisualizerObj;
     [SerializeField] AudioClip beepAudioClip, boomAudioClip;
     [SerializeField] ParticleSystem explosionParticleSystem;
 
     //internal
     PlayerSpaceship _playerSpaceship;
+    GameCameraController cameraController;
 
     protected override void OnStart()
     {
-        radiusVisualizerObj.transform.DOScale(detectionRadius, 0.5f);
-        GetComponent<CircleCollider2D>().radius = detectionRadius;
+        ApplyRadius(); // make sure it applies at runtime too
+        cameraController = FindFirstObjectByType<GameCameraController>();
+    }
+
+    // This runs whenever a serialized field changes in the Inspector
+    private void OnValidate()
+    {
+        ApplyRadius();
+    }
+
+    private void ApplyRadius()
+    {
+        if (radiusVisualizerObj != null)
+        {
+            radiusVisualizerObj.transform.localScale = Vector3.one * detectionRadius;
+        }
+
+        var col = GetComponent<CircleCollider2D>();
+        if (col != null)
+        {
+            col.radius = detectionRadius;
+        }
     }
 
     public override void OnInteract(PlayerSpaceship spaceship)
     {
         _playerSpaceship = spaceship;
-        //transform.DOShakePosition(strength: vibrationStrength, vibrato: 20, duration: delayInterval * intervalTimes, fadeOut: false);
         StartCoroutine(ExplosionCo());
     }
 
@@ -40,16 +62,22 @@ public class Landmine : InteractableBase
         {
             PlayBeepSound();
             transform.DOShakePosition(strength: vibrationStrength, vibrato: 20, duration: delayInterval, fadeOut: true);
-
             yield return new WaitForSeconds(delayInterval);
         }
 
         Explode();
-
+        cameraController.ShakeCamera(0.5f, strength: 2);
         yield return new WaitForSeconds(0.6f);
         transform.DOScale(0, 0.5f);
+        GiveReward();
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
+    }
+
+    private void GiveReward()
+    {
+        FindFirstObjectByType<SessionManager>().AddDestructionValue(reward);
+        FindFirstObjectByType<Spawner>().SpawnText(transform.position, text: $" +${reward}");
     }
 
     private void Explode()
@@ -66,7 +94,6 @@ public class Landmine : InteractableBase
 
     private void PlayBeepSound()
     {
-        //Base contains the sfxPlayer
         sfxPlayer.PlaySFX(beepAudioClip);
     }
 }

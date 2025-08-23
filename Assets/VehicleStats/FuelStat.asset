@@ -15,15 +15,15 @@ MonoBehaviour:
   id: 0
   icon: {fileID: -3947365688401751181, guid: 465d2569711543e41b0bac5b603ade3f, type: 3}
   upgradeName: Fuel Capacity
-  currentLevelIndex: 0
+  currentLevelIndex: 2
   upgrades:
   - upgradeCost: 0
     upgradeModifier: 0
-  - upgradeCost: 2
+  - upgradeCost: 4
     upgradeModifier: 4
-  - upgradeCost: 8
-    upgradeModifier: 8
   - upgradeCost: 16
+    upgradeModifier: 8
+  - upgradeCost: 32
     upgradeModifier: 12
   - upgradeCost: 24
     upgradeModifier: 15

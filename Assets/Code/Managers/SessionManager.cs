@@ -36,7 +36,6 @@ public class SessionManager : MonoBehaviour
         if (sessionOver)
         { return; }
 
-
         //Get and set the Finish Line Height
         float finishLineHeight = 0;
         if (FindFirstObjectByType<FinishLine>() != null)
@@ -55,7 +54,7 @@ public class SessionManager : MonoBehaviour
 
         //Rewards and Calculation
         float maxHeightReached = isLevelFinished ? finishLineHeight : spaceship.MaxHeightReached;
-        int rewardGranted = CalculateReward(maxHeightReached, collectedCoinValue);
+        int rewardGranted = CalculateReward(maxHeightReached, _collectedCoinValue);
         MoneyMan.AddMoney(rewardGranted);
 
         //Current Day Calc
@@ -66,8 +65,8 @@ public class SessionManager : MonoBehaviour
         {
             dayNumber = PlayerPrefs.GetInt(sceneDaySaveKey),
             rewardDistance = Mathf.FloorToInt(maxHeightReached) / 2,
-            rewardDestruction = 0,
-            coinCollectedReward = collectedCoinValue,
+            rewardDestruction = _destructionValue,
+            rewardCoinCollection = _collectedCoinValue,
             totalReward = rewardGranted,
 
             completedLevelLength = maxHeightReached,
@@ -76,15 +75,12 @@ public class SessionManager : MonoBehaviour
             gameOverCause = l_gameOverCause
         };
 
-
         sessionOver = true;
 
         StartCoroutine(SessionOverCo(delay: 1, endData));
     }
     private IEnumerator SessionOverCo(float delay, SessionEndData endData)
     {
-
-
         //FX and stop session
         flashFxSpriteRenderer.gameObject.SetActive(true);
         flashFxSpriteRenderer.DOFade(0, 1f).From(1).SetUpdate(true);
@@ -109,10 +105,15 @@ public class SessionManager : MonoBehaviour
         return reward;
     }
 
-    public int collectedCoinValue;
+    int _collectedCoinValue, _destructionValue;
     public void AddCollectCoinValue(int coinValue)
     {
-        collectedCoinValue += coinValue;
+        _collectedCoinValue += coinValue;
+    }
+
+    public void AddDestructionValue(int value)
+    {
+        _destructionValue += value;
     }
     #endregion
 

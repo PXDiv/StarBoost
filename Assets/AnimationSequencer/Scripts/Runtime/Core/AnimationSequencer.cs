@@ -87,7 +87,7 @@ namespace BrunoMikoski.AnimationSequencer
         // Editor-only variables
         private bool requiresReset;
 #endif
-        #endregion
+#endregion
 
         #region Unity lifecycle methods
         private void Start()
@@ -453,7 +453,7 @@ namespace BrunoMikoski.AnimationSequencer
             requiresReset = false;
         }
 #endif
-        #endregion
+#endregion
 
         #region Helper methods
         public bool TryGetStepAtIndex<T>(int index, out T result) where T : AnimationStepBase
