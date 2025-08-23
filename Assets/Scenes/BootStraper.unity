@@ -1975,17 +1975,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3881087803549984436, guid: ec536a7718376554185e4a856d5ae230, type: 3}
   m_PrefabInstance: {fileID: 1346814492}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &885079187 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3881087803549984439, guid: ec536a7718376554185e4a856d5ae230, type: 3}
-  m_PrefabInstance: {fileID: 1346814492}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42844a4fccbd54746b90cade4ff70f73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &926930152
 GameObject:
   m_ObjectHideFlags: 0
@@ -2550,7 +2539,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -86.5, y: -84.4}
+  m_AnchoredPosition: {x: -86.5, y: -84.3999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1113063159
@@ -3104,6 +3093,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Variable Joystick
       objectReference: {fileID: 0}
+    - target: {fileID: 3881087803549984437, guid: ec536a7718376554185e4a856d5ae230, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3881087803549984438, guid: ec536a7718376554185e4a856d5ae230, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -3203,18 +3196,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseAcceleration: {x: 0.4, y: 0.5}
-  baseVelocity: {x: 3, y: 2}
+  baseVelocity: {x: 1.5, y: 2}
   fallVelocity: 2
   maxBoost: 10
+  swipeSenstivity: 30
   baseFuelReductionRate: 0.1
-  baseFuel: 10
+  baseFuel: 900
   visualSprite: {fileID: 361116884}
   leanRotationSpeed: 10
   maxVisualRotation: 25
   rb: {fileID: 1348407030}
   debugText: {fileID: 1790877932}
   paintSplashGameobj: {fileID: 5745073752756744834, guid: a54b91d4c3d22eb45a87580ab7c1146d, type: 3}
-  joystick: {fileID: 885079187}
   playerAudioSource: {fileID: 1348407034}
   fuelOverAudioClip: {fileID: 8300000, guid: 30129ebd421187b4fb93042c4331cd24, type: 3}
   gameOver: 0
@@ -3237,7 +3230,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 1
   m_AngularDamping: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -5334,7 +5327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1790877932
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1672,7 +1672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2036795237000645374, guid: 0433bb49392be2144818e5bbd231f189, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.91
+      value: 10.71
       objectReference: {fileID: 0}
     - target: {fileID: 2036795237000645374, guid: 0433bb49392be2144818e5bbd231f189, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2017,6 +2017,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   parallaxEffect: 0.5
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &492661097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4545,6 +4546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   parallaxEffect: 0.3
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &547891073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4895,7 +4897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2927763112947860472, guid: 45ea03be15f1962409fd93886e482e4d, type: 3}
       propertyPath: m_DynamicOccludee
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2927763112947860472, guid: 45ea03be15f1962409fd93886e482e4d, type: 3}
       propertyPath: m_LocalAABB.m_Center.x
@@ -5145,7 +5147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2927763112947860472, guid: 45ea03be15f1962409fd93886e482e4d, type: 3}
       propertyPath: m_DynamicOccludee
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6156387515880159899, guid: 45ea03be15f1962409fd93886e482e4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5826,7 +5828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2927763112947860472, guid: 45ea03be15f1962409fd93886e482e4d, type: 3}
       propertyPath: m_DynamicOccludee
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2927763112947860472, guid: 45ea03be15f1962409fd93886e482e4d, type: 3}
       propertyPath: m_LocalAABB.m_Center.x
@@ -7206,6 +7208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   parallaxEffect: 0.2
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!1 &982000884
 GameObject:
   m_ObjectHideFlags: 0
@@ -7503,6 +7506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   parallaxEffect: 0.5
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1180380974
 GameObject:
   m_ObjectHideFlags: 0
@@ -7675,7 +7679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7609454975782109855, guid: 354898a4fd951bc4cb5097091ed4a278, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.297
+      value: 8.51
       objectReference: {fileID: 0}
     - target: {fileID: 7609454975782109855, guid: 354898a4fd951bc4cb5097091ed4a278, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7866,7 +7870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2927763112947860472, guid: 45ea03be15f1962409fd93886e482e4d, type: 3}
       propertyPath: m_DynamicOccludee
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6156387515880159899, guid: 45ea03be15f1962409fd93886e482e4d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10732,6 +10736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   parallaxEffect: 0.15
+  startPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1404238474
 GameObject:
   m_ObjectHideFlags: 0
@@ -11394,7 +11399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2927763112947860472, guid: 45ea03be15f1962409fd93886e482e4d, type: 3}
       propertyPath: m_DynamicOccludee
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6156387515880159899, guid: 45ea03be15f1962409fd93886e482e4d, type: 3}
       propertyPath: m_LocalPosition.x

@@ -2,6 +2,9 @@ using System;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
+
 public class PlayerSpaceship : MonoBehaviour
 {
     #region Serialized Fields
@@ -10,6 +13,8 @@ public class PlayerSpaceship : MonoBehaviour
     [SerializeField] Vector2 baseVelocity;
     [SerializeField] float fallVelocity;
     [SerializeField] float maxBoost = 10;
+    [SerializeField] float swipeSenstivity = 2;
+
 
     [Header("Attributes")]
     [SerializeField] float baseFuelReductionRate = 0.1f;
@@ -24,7 +29,7 @@ public class PlayerSpaceship : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] TMP_Text debugText;
     [SerializeField] GameObject paintSplashGameobj;
-    [SerializeField] VariableJoystick joystick;
+    //[SerializeField] VariableJoystick joystick;
     [SerializeField] AudioSource playerAudioSource;
     [SerializeField] AudioClip fuelOverAudioClip;
     //[SerializeField] VehicleUpgradeManager upgradeManager;
@@ -72,6 +77,8 @@ public class PlayerSpaceship : MonoBehaviour
     #region Initialization
     void Awake()
     {
+        EnhancedTouchSupport.Enable();
+
         SetupBaseSessionAttributes();
         SetVehicleMaxAttributes();
     }
@@ -86,11 +93,14 @@ public class PlayerSpaceship : MonoBehaviour
     #region UpdateChanges
     void Update()
     {
-        yInput = Input.GetMouseButton(0) ? 1f : 0f;
-        xInput = joystick.Horizontal;
+        CalculateInput();
+
 
         ManageAudio();
     }
+
+
+
     void FixedUpdate()
     {
         if (IsFuelAvailable() && !gameOver)
@@ -110,10 +120,34 @@ public class PlayerSpaceship : MonoBehaviour
         }
 
     }
-
     private void UpdateDebugText()
     {
-        debugText.text = sessionCurrentFuel + "<br> Height: " + transform.position.y + "<br> Reward: " + Convert.ToInt16(transform.position.y / 2);
+        debugText.text = $"{xInput} <br>" + sessionCurrentFuel + "<br> Height: " + transform.position.y + "<br> Reward: " + Convert.ToInt16(transform.position.y / 2);
+    }
+    #endregion
+
+    #region Movement Calc
+    private void CalculateInput()
+    {
+        if (Input.touchCount > 0)
+        {
+            UnityEngine.Touch touch = Input.GetTouch(0);
+            // Normalize delta to screen width so swipe feels similar on all devices
+            float normalizedXDelta = touch.deltaPosition.x / Screen.width;
+            float swipeSensitivity = 10f; // Adjust this value as needed for desired feel
+
+            // Apply sensitivity, then clamp between -1 and 1
+            xInput = Mathf.Clamp(normalizedXDelta * swipeSensitivity, -1f, 1f);
+            yInput = 1f;
+        }
+        else
+        {
+            xInput = 0f;
+            yInput = 0f;
+        }
+
+        // For debugging, print the normalized delta
+        print(xInput + " " + Input.mousePositionDelta);
     }
     #endregion
 
@@ -132,7 +166,7 @@ public class PlayerSpaceship : MonoBehaviour
     void LeanAnimate()
     {
         //calculate the target location to lean towards
-        float targetZ = xInput * -maxVisualRotation;
+        float targetZ = rb.linearVelocityX * -maxVisualRotation;
 
         //actually lean towards it
         leanAngle.z = Mathf.LerpAngle(
