@@ -22,7 +22,7 @@ public class FuelCan : MonoBehaviour, IInteractable
     {
         if (!interacted)
         {
-            FindFirstObjectByType<Spawner>().SpawnText(transform.position, text: $"Fuel + {fuelAmount}");
+            FindFirstObjectByType<ObjectSpawner>().SpawnText(transform.position, text: $"Fuel + {fuelAmount}");
             spaceship.RefillFuel(fuelAmount);
 
             if (sfxPlayer == null)

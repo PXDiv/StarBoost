@@ -122,28 +122,53 @@ public class PlayerSpaceship : MonoBehaviour
     #endregion
 
     #region Input Calc
+    private Vector2 lastMousePos;
+    private bool hasLastMousePos;
+
     private void CalculateInput()
     {
         if (Input.touchCount > 0)
         {
+            // --- Touch input ---
             Touch touch = Input.GetTouch(0);
 
-            // Convert to velocity (pixels per second)
             Vector2 velocity = touch.deltaPosition / Time.deltaTime;
 
-            // Normalize by screen width so it feels consistent on all devices
             float normalizedXVelocity = velocity.x / Screen.width;
-
-            // Apply sensitivity, clamp
             xInput = Mathf.Clamp(normalizedXVelocity * swipeSensitivity, -1f, 1f);
+
+            // Constant forward motion
             yInput = 1f;
+        }
+        else if (Input.GetMouseButton(0)) // Left mouse held down
+        {
+            // --- Mouse input ---
+            Vector2 mousePos = Input.mousePosition;
+
+            if (hasLastMousePos)
+            {
+                Vector2 delta = (mousePos - lastMousePos);
+                Vector2 velocity = delta / Time.deltaTime;
+
+                float normalizedXVelocity = velocity.x / Screen.width;
+                xInput = Mathf.Clamp(normalizedXVelocity * swipeSensitivity, -1f, 1f);
+
+                // Constant forward motion
+                yInput = 1f;
+            }
+
+            lastMousePos = mousePos;
+            hasLastMousePos = true;
         }
         else
         {
+            // --- No input ---
             xInput = 0f;
             yInput = 0f;
+            hasLastMousePos = false;
         }
     }
+
 
     #endregion
 

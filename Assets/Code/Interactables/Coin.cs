@@ -31,7 +31,7 @@ public class Coin : MonoBehaviour, IInteractable
             }
             sfxPlayer.PlaySFX(interactionSound, volume: 0.5f);
 
-            FindFirstObjectByType<Spawner>().SpawnText(transform.position, text: $"+${CoinValue}");
+            FindFirstObjectByType<ObjectSpawner>().SpawnText(transform.position, text: $"+${CoinValue}");
             //GetComponent<AudioSource>().PlayOneShot(interactionSound);
 
             gameObject.transform.DOScale(Vector2.zero, 0.5f).SetEase(Ease.OutExpo).OnComplete(() => Destroy(gameObject, 1f));

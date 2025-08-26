@@ -78,7 +78,7 @@ public class Landmine : InteractableBase
     private void GiveReward()
     {
         FindFirstObjectByType<SessionManager>().AddDestructionValue(reward);
-        FindFirstObjectByType<Spawner>().SpawnText(transform.position, text: $" +${reward}");
+        FindFirstObjectByType<ObjectSpawner>().SpawnText(transform.position, text: $" +${reward}");
     }
 
     private void Explode()

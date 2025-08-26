@@ -3,7 +3,7 @@ using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class ObjectSpawner : MonoBehaviour
 {
     [SerializeField] TMP_Text textPrefab;
 

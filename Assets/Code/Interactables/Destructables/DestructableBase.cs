@@ -15,7 +15,7 @@ public abstract class DestructableBase : InteractableBase
     public override void OnInteract(PlayerSpaceship spaceship)
     {
         particlesController.StartParticles();
-        FindFirstObjectByType<Spawner>().SpawnText(transform.position, $"+${destructionReward}");
+        FindFirstObjectByType<ObjectSpawner>().SpawnText(transform.position, $"+${destructionReward}");
         cameraController.ShakeCamera(cameraShakeDuration);
         FindFirstObjectByType<SessionManager>().AddDestructionValue(destructionReward);
         OnDestruction();
