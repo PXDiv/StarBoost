@@ -21,14 +21,14 @@ MonoBehaviour:
     upgradeModifier: 0
   - upgradeCost: 32
     upgradeModifier: 1
-  - upgradeCost: 256
+  - upgradeCost: 128
     upgradeModifier: 2
-  - upgradeCost: 512
+  - upgradeCost: 256
     upgradeModifier: 2.5
-  - upgradeCost: 1024
+  - upgradeCost: 512
     upgradeModifier: 3
-  - upgradeCost: 2056
+  - upgradeCost: 1024
     upgradeModifier: 4
-  - upgradeCost: 3000
+  - upgradeCost: 2000
     upgradeModifier: 5
   canUpgrade: 1

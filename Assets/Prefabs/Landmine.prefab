@@ -5017,7 +5017,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1
+  m_Radius: 0.9
 --- !u!114 &2430184171490002646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5032,6 +5032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactAudioClip: {fileID: 0}
   detectionRadius: 1
+  colliderRangeFactor: 0.9
   playerLayer:
     serializedVersion: 2
     m_Bits: 8

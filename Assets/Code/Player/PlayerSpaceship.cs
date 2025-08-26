@@ -2,9 +2,6 @@ using System;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.EnhancedTouch;
-
 public class PlayerSpaceship : MonoBehaviour
 {
     #region Serialized Fields
@@ -13,7 +10,7 @@ public class PlayerSpaceship : MonoBehaviour
     [SerializeField] Vector2 baseVelocity;
     [SerializeField] float fallVelocity;
     [SerializeField] float maxBoost = 10;
-    [SerializeField] float swipeSenstivity = 2;
+    [SerializeField] float swipeSensitivity = 20;
 
 
     [Header("Attributes")]
@@ -77,8 +74,6 @@ public class PlayerSpaceship : MonoBehaviour
     #region Initialization
     void Awake()
     {
-        EnhancedTouchSupport.Enable();
-
         SetupBaseSessionAttributes();
         SetVehicleMaxAttributes();
     }
@@ -126,18 +121,21 @@ public class PlayerSpaceship : MonoBehaviour
     }
     #endregion
 
-    #region Movement Calc
+    #region Input Calc
     private void CalculateInput()
     {
         if (Input.touchCount > 0)
         {
-            UnityEngine.Touch touch = Input.GetTouch(0);
-            // Normalize delta to screen width so swipe feels similar on all devices
-            float normalizedXDelta = touch.deltaPosition.x / Screen.width;
-            float swipeSensitivity = 10f; // Adjust this value as needed for desired feel
+            Touch touch = Input.GetTouch(0);
 
-            // Apply sensitivity, then clamp between -1 and 1
-            xInput = Mathf.Clamp(normalizedXDelta * swipeSensitivity, -1f, 1f);
+            // Convert to velocity (pixels per second)
+            Vector2 velocity = touch.deltaPosition / Time.deltaTime;
+
+            // Normalize by screen width so it feels consistent on all devices
+            float normalizedXVelocity = velocity.x / Screen.width;
+
+            // Apply sensitivity, clamp
+            xInput = Mathf.Clamp(normalizedXVelocity * swipeSensitivity, -1f, 1f);
             yInput = 1f;
         }
         else
@@ -145,10 +143,8 @@ public class PlayerSpaceship : MonoBehaviour
             xInput = 0f;
             yInput = 0f;
         }
-
-        // For debugging, print the normalized delta
-        print(xInput + " " + Input.mousePositionDelta);
     }
+
     #endregion
 
     #region MovementStuff
@@ -166,7 +162,7 @@ public class PlayerSpaceship : MonoBehaviour
     void LeanAnimate()
     {
         //calculate the target location to lean towards
-        float targetZ = rb.linearVelocityX * -maxVisualRotation;
+        float targetZ = xInput * -maxVisualRotation;
 
         //actually lean towards it
         leanAngle.z = Mathf.LerpAngle(

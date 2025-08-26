@@ -4,6 +4,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] int startLevel = 1;
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
     public void StartSession()
     {
         LevelManager.LoadCurrentUnfinishedLevel();
