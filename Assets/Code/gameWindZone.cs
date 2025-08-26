@@ -21,6 +21,7 @@ public class gameWindZone : MonoBehaviour
 
     private void Start()
     {
+        GetComponent<SpriteRenderer>().enabled = false;
         if (windParticles != null)
         {
             var main = windParticles.main;
@@ -30,6 +31,7 @@ public class gameWindZone : MonoBehaviour
 
             var shape = windParticles.shape;
             shape.radius = transform.localScale.y / 2; // radius is half the diameter
+            main.startLifetime = transform.localScale.x / 4;
         }
     }
 

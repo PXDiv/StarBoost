@@ -20,6 +20,8 @@ MonoBehaviour:
   - {fileID: 102900000, guid: a0b7ebdf163d080468efe7438390accc, type: 3}
   - {fileID: 102900000, guid: 04b48dc95d45c43448b0794f5705b86e, type: 3}
   - {fileID: 102900000, guid: 3edfff41d47ddab41af1a5e7ef8506ba, type: 3}
+  - {fileID: 102900000, guid: ae880297b2ee50d43b36ed5f2fa24ae1, type: 3}
+  - {fileID: 102900000, guid: 12c723924148fe744baf2666fe235315, type: 3}
   sceneNames:
   - Level 1
   - Level 2
@@ -28,3 +30,5 @@ MonoBehaviour:
   - Level 5
   - Level 6
   - Level 7
+  - Level 8
+  - Level 9
